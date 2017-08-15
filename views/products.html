@@ -1,0 +1,8 @@
+
+<div ng-controller="GetProducts">
+    <div ng-repeat="items in products">
+        <img ng-src="../images/{{items.image}}">
+        {{items.name}}
+        {{items.price || currency}} 
+    </div>
+</div>
