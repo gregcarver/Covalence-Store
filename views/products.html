@@ -1,8 +1,9 @@
 
 <div ng-controller="GetProducts">
+    <img src="../images/covalence-store-apparel-hero.jpg">
     <div ng-repeat="items in products">
         <img ng-src="../images/{{items.image}}">
         {{items.name}}
-        {{items.price || currency}} 
+        {{items.price | MonetaryUnit | currency}} 
     </div>
 </div>

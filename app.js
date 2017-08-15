@@ -1,3 +1,4 @@
+var fillHeader = {headers:{'Filter' : 'f0414a37-8143-11e7-8e40-12dbaf53d968'} }
 var app = angular.module('myApp',["ngRoute"]);
 app.config(function($routeProvider){
     $routeProvider
@@ -23,9 +24,7 @@ app.config(function($routeProvider){
 // //Get all products
 app.controller("GetProducts",function($scope,$http){
     // console('Get product initialized')
-    $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/all?category=apparel',{
-       headers:{'Filter' : 'f0414a37-8143-11e7-8e40-12dbaf53d968'} 
-    })
+    $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/all?category=apparel', fillHeader)
         .then(function(response){
             //console.log(response)
             console.log('get request processed')
@@ -37,9 +36,7 @@ app.controller("GetProducts",function($scope,$http){
     })
 app.controller("GetMisc",function($scope,$http){
     // console('Get product initialized')
-    $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/all?category=misc',{
-       headers:{'Filter' : 'f0414a37-8143-11e7-8e40-12dbaf53d968'} 
-    })
+    $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/all?category=misc',fillHeader)
         .then(function(response){
             //console.log(response)
             console.log('get request processed')
@@ -53,44 +50,54 @@ app.controller("GetMisc",function($scope,$http){
 // app.controller("GetOneProducts",function($scope,$http,$routeParams){
 //     console('Get product initialized')
 //     var id=$routeParams.id;
-//     $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/one/'+id)
+//     $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/one/'+id,fillHeader)
 //         .then(function(response){
 //             console.log('get request processed')
 //             $scope.products=response.data
 //         })
 //     })
 // //Get all invoices
-// app.controller("GetInvoices",function($scope,$http){
-//     console('Get product initialized')
-//     $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/invoices/all')
-//         .then(function(response){
-//             console.log('get request processed')
-//             $scope.invoices=response.data
-//         })
-//     })
+app.controller("GetInvoices",function($scope,$http){
+    console('Get all invoices initialized')
+    $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/invoices/all',fillHeader)
+        .then(function(response){
+            console.log('get request processed')
+            $scope.invoices=response.data
+        })
+    })
 // //Get one invoice
-// app.controller("GetOneProducts",function($scope,$http,$routeParams){
+// app.controller("GetOneProduct",function($scope,$http,$routeParams){
 //     console('Get product initialized')
 //     var id=$routeParams.id;
-//     $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/invoices/one/'+id)
+//     $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/invoices/one/'+id,fillHeader)
 //         .then(function(response){
 //             console.log('get request processed')
 //             $scope.invoices=response.data
 //         })
 //     })
 // //Post Invoice
-// app.controller("PostProduct",function($scope,$http){
-//     console('Get product initialized')
-//     $scope.postInvoice = function() {
-//         console.log('i clicked');
-//         var data= {
-//             date : $scope.date,
-//             price : $scope.price,
-//         };
-//         $http({ 
-//             method: 'POST', 
-//             url: 'http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/invoices', 
-//             data: data 
-//         })
-//     }
-// })
+app.controller("PostProduct",function($scope,$http){
+    console('post invoice initialized')
+    $scope.postInvoice = function() {
+        console.log('i clicked');
+        var data= {
+            date : $scope.date,
+            price : $scope.price,
+            id : $scope.id
+        };
+    $http.post('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/invoices',fillHeader)
+        .then(function(response){
+            //console.log(response)
+            console.log('post request processed')
+            $scope.invoices = response.data.data
+            
+                console.log($scope.invoices)
+           
+        })
+    }
+})
+app.filter('MonetaryUnit', function () {
+    return function (amount) {
+        return (amount / 100).toFixed(2);
+    }
+});
