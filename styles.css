@@ -19,6 +19,10 @@
     
 }
 
+.navbar {
+    opacity: 0.9;
+}
+
 .navbar-brand {
     padding: 0px;
 }
@@ -30,5 +34,5 @@
 }
 
 #home-bg-img {
-    margin-top: -50px;
+    margin-top: -72px;
 }
