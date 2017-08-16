@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 
 /* body { margin:50px auto; width:600px;}
 
@@ -6,9 +6,7 @@ CSS for Credit Card Payment form
 .credit-card-box .panel-title {
 
 
-/* #home-bg-img{
-    position: relative;
-} */
+
 
 
 
@@ -17,12 +15,10 @@ CSS for Credit Card Payment form
 /* CSS for Credit Card Payment form */
 /* .credit-card-box .panel-title {
 
-=======
 /*body { margin:50px auto; width:600px;}*/
 
 /* CSS for Credit Card Payment form */
 /*.credit-card-box .panel-title {
->>>>>>> Stashed changes
     display: inline;
     font-weight: bold;
 }*/
@@ -45,7 +41,6 @@ CSS for Credit Card Payment form
 }*/
 /*.credit-card-box label {
     display: block;
-<<<<<<< Updated upstream
 }
 
 The old "center div vertically" hack
@@ -54,11 +49,9 @@ The old "center div vertically" hack
 /* The old "center div vertically" hack */
 /* .credit-card-box .display-table {
 
-=======
 }*/
 /* The old "center div vertically" hack */
 /*.credit-card-box .display-table {
->>>>>>> Stashed changes
     display: table;
 }*/
 /*.credit-card-box .display-tr {
@@ -68,7 +61,6 @@ The old "center div vertically" hack
     display: table-cell;
     vertical-align: middle;
     width: 50%;
-<<<<<<< Updated upstream
 
 }
 Just looks nicer
@@ -80,12 +72,32 @@ Just looks nicer
     min-width: 180px;
 }  */
 
-/** home page **/
 
-=======
-}*/
+
 /* Just looks nicer */
 /*.credit-card-box .panel-heading img {
     min-width: 180px;
 }*/
->>>>>>> Stashed changes
+
+/** home page **/
+
+#home-header{
+    position: absolute;    
+    color:white;
+    transform: translate(30%,-600%);
+    width: 600px;
+    z-index: 0;    
+    font-size:70px;
+}
+
+#home-btn{
+    width: 300px;
+    height: 100px;
+    font-size: 32px;
+    background-color: #47b6c7;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    transform: translate(60%,-700%);
+    
+}
