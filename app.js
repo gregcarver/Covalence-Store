@@ -17,9 +17,9 @@ app.config(function($routeProvider){
     .when('/checkout',{
     templateUrl: "../views/checkout.html"
 })
-//     .when('/products:id',{
-//     templateUrl: "../views/productinfo.html"
-// })
+    .when('/products/:id',{
+    templateUrl: "../views/productinfo.html"
+})
 });
 // //Get all products
 app.controller("GetProducts",function($scope,$http){
@@ -46,23 +46,31 @@ app.controller("GetMisc",function($scope,$http){
            
         })
     })
-// //Get one products
-// app.controller("GetOneProducts",function($scope,$http,$routeParams){
-//     console('Get product initialized')
-//     var id=$routeParams.id;
-//     $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/one/'+id,fillHeader)
-//         .then(function(response){
-//             console.log('get request processed')
-//             $scope.products=response.data
-//         })
-//     })
+// //Get one product
+app.controller("GetOneProduct",function($scope,$http,$routeParams){
+    var id=$routeParams.id;
+    $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/one/'+id,fillHeader)
+        .then(function(response){
+            console.log('get request processed')
+            $scope.singleProduct=response.data.data
+        })
+    })
+    // app.controller("GetOneMisc",function($scope,$http,$routeParams){
+    // console('Get product initialized')
+    // var id=$routeParams.id;
+    // $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/one/'+id,fillHeader)
+    //     .then(function(response){
+    //         console.log('get request processed')
+    //         $scope.products=response.data
+    //     })
+    // })
 // //Get all invoices
 app.controller("GetInvoices",function($scope,$http){
     console('Get all invoices initialized')
     $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/invoices/all',fillHeader)
         .then(function(response){
             console.log('get request processed')
-            $scope.invoices=response.data
+            $scope.invoices=response.data.data
         })
     })
 // //Get one invoice
@@ -98,6 +106,11 @@ app.controller("PostProduct",function($scope,$http){
 })
 app.filter('MonetaryUnit', function () {
     return function (amount) {
-        return (amount / 100).toFixed(2);
+        console.log(amount)
+          var string= amount.toString()
+          console.log(string)
+        return string.slice(0,2)
+        
     }
+    
 });

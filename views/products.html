@@ -1,9 +1,18 @@
 
 <div ng-controller="GetProducts">
-    <img src="../images/covalence-store-apparel-hero.jpg">
-    <div ng-repeat="items in products">
-        <img ng-src="../images/{{items.image}}">
-        {{items.name}}
-        {{items.price | MonetaryUnit | currency}} 
+    <div class="jumbotron jumbotron-contain">
+        <img src="../images/covalence-store-apparel-hero.jpg">
+    </div>
+    
+    
+    <div ng-repeat="items in products" class="col-md-4" id="productsContainer">
+        
+    
+                <img ng-src="../images/{{items.image}}">
+                <br>
+                {{items.name}}
+                <span id="floatRight">${{items.price | MonetaryUnit}}  </span>
+        </div>
+
     </div>
 </div>
