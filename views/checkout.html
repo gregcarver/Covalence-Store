@@ -1,100 +1,105 @@
-<!--<div class="container">
-        <div class="row">-->
-        <!-- You can make it whatever width you want. I'm making it full width
-        on <= small devices and 4/12 page width on >= medium devices -->
-        <!--<div class="col-xs-12 col-md-4">-->
+<div class="jumbotron purchasetron">
+        <div class="container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Thank you for shopping with us.</h3>
+                        <h4>Contents of cart: </h4><br/>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3">
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>Item:</h4>
+                                </div>
+                                <div class="col-md-3">
+                                    <h4>Price</h4>
+                                </div>
+                                <div class="col-md-2">
+                                    <h4>Qty</h4>
+                                </div>
+                            </div><br/>
+                        </div>
+                        <div ng-repeat="i in items" class="container">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img ng-src="{{ i.imageurl }}" class="img-thumbnail" alt="">
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>{{ i.title }}</h4>
+                                </div>
+                                <div class="col-md-3">
+                                    <h4 ng-model="price">{{ i.price | currency:"$":0 }}</h4>
+                                </div>
+                                <div class="col-md-2 quantity-widget">
+                                    <div class="votingButton">
+                                        <a class="glyphicon glyphicon-chevron-up glyphicon-white" ng-click="up(i)"></a>
+                                    </div>
+                                    <div class="badge badge-inverse">
+                                        <div ng-model="num">{{i.quantity}}</div>
+                                    </div>
+                                    <div class="votingButton">
+                                        <a class="glyphicon glyphicon-chevron-down glyphicon-white" ng-click="down(i)"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <form>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label for="firstname">First Name</label>
+                                        <input type="text" class="form-control" ng-model="firstname" placeholder="Enter First Name">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label for="lastname">Last Name</label>
+                                        <input type="text" class="form-control" ng-model="lastname" placeholder="Enter Last Name">
+                                    </div>
+                                </div>
+    
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <label for="cardnumber">Credit Card Number</label>
+                                        <input type="number" class="form-control" ng-model="cardnumber" placeholder="Enter Card Number">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="cvc">CVC</label>
+                                        <input type="number" class="form-control" ng-model="cvc" placeholder="Enter CVC">
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                   <div class="col-md-6">
+                                       <label for="expirationMonth">Expiration Month</label>
+                                       <input type="number" class="form-control" ng-model="expirationMonth" placeholder="Enter Expiration Month">
+                                   </div>
+                                   <div class="col-md-6">
+                                       <label for="expirationYear">Expiration Year</label>
+                                       <input type="number" class="form-control" ng-model="expirationYear" placeholder="Enter Expiration Year">
+                                   </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="submit" ng-click="processPayment()" class="btn btn-warning btn-lg">Pay</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h4>Total: {{ finalcost | currency:"$"}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
         
-        
-        <!-- CREDIT CARD FORM STARTS HERE -->
-        <!--<div class="panel panel-default credit-card-box">
-        <div class="panel-heading display-table" >
-        <div class="row display-tr" >
-        <h3 class="panel-title display-td" >Payment Details</h3>
-        <div class="display-td" >                            
-        <img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
-        </div>
-        </div>                    
-        </div>
-        <div class="panel-body">
-        <form role="form" id="payment-form">
-        <div class="row">
-        <div class="col-xs-12">
-        <div class="form-group">
-        <label for="cardNumber">CARD NUMBER</label>
-        <div class="input-group">
-        <input 
-        type="tel"
-        class="form-control"
-        name="cardNumber"
-        placeholder="Valid Card Number"
-        autocomplete="cc-number"
-        required autofocus 
-        />
-        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-        </div>
-        </div>                            
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-xs-7 col-md-7">
-        <div class="form-group">
-        <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
-        <input 
-        type="tel" 
-        class="form-control" 
-        name="cardExpiry"
-        placeholder="MM / YY"
-        autocomplete="cc-exp"
-        required 
-        />
-        </div>
-        </div>
-        <div class="col-xs-5 col-md-5 pull-right">
-        <div class="form-group">
-        <label for="cardCVC">CV CODE</label>
-        <input 
-        type="tel" 
-        class="form-control"
-        name="cardCVC"
-        placeholder="CVC"
-        autocomplete="cc-csc"
-        required
-        />
-        </div>
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-xs-12">
-        <div class="form-group">
-        <label for="couponCode">COUPON CODE</label>
-        <input type="text" class="form-control" name="couponCode" />
-        </div>
-        </div>                        
-        </div>
-        <div class="row">
-        <div class="col-xs-12">
-        <button class="btn btn-success btn-lg btn-block" type="submit">Start Subscription</button>
-        </div>
-        </div>
-        <div class="row" style="display:none;">
-        <div class="col-xs-12">
-        <p class="payment-errors"></p>
-        </div>
-        </div>
-        </form>
-        </div>
-        </div>            -->
-        <!-- CREDIT CARD FORM ENDS HERE -->
-        
-        
-        <!--</div>            
-        
-        
-        
-        </div>
-        </div>
-        
-        If you're using Stripe for payments -->
-        <!--<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-            
-        </body>-->
