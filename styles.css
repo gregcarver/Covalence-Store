@@ -1,7 +1,21 @@
+
 /* body { margin:50px auto; width:600px;}
 
 CSS for Credit Card Payment form
 .credit-card-box .panel-title {
+
+
+/* #home-bg-img{
+    position: relative;
+} */
+
+
+
+/* body { margin:50px auto; width:600px;} */
+
+/* CSS for Credit Card Payment form */
+/* .credit-card-box .panel-title {
+
     display: inline;
     font-weight: bold;
 }
@@ -25,19 +39,32 @@ CSS for Credit Card Payment form
 .credit-card-box label {
     display: block;
 }
+
 The old "center div vertically" hack
 .credit-card-box .display-table {
+
+/* The old "center div vertically" hack */
+/* .credit-card-box .display-table {
+
     display: table;
 }
 .credit-card-box .display-tr {
     display: table-row;
-}
-.credit-card-box .display-td {
+} */
+/* .credit-card-box .display-td {
     display: table-cell;
     vertical-align: middle;
     width: 50%;
+
 }
 Just looks nicer
 .credit-card-box .panel-heading img {
     min-width: 180px;
 } */
+/* Just looks nicer */
+/* .credit-card-box .panel-heading img {
+    min-width: 180px;
+}  */
+
+/** home page **/
+
