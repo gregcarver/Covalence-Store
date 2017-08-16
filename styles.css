@@ -1,4 +1,4 @@
-#home-header{
+#home-header {
     position: absolute;    
     color:white;
     transform: translate(30%,-600%);
@@ -7,7 +7,7 @@
     font-size:70px;
 }
 
-#home-btn{
+#home-btn {
     width: 300px;
     height: 100px;
     font-size: 32px;
@@ -19,12 +19,17 @@
     
 }
 
+#home-logo {
+    border-right: 3px solid rgb(67, 176, 193);
+}
+
 .navbar {
     opacity: 0.9;
 }
 
 .navbar-brand {
     padding: 0px;
+    height: 80px;
 }
   
 .navbar-brand>img {
@@ -34,5 +39,10 @@
 }
 
 #home-bg-img {
-    margin-top: -72px;
+    margin-top: -102px;
+}
+
+.nav >li >a {
+padding-top: 30px;
+padding-bottom: 30px;
 }
