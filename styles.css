@@ -46,3 +46,56 @@
 padding-top: 30px;
 padding-bottom: 30px;
 }
+/*Product CSS*/
+/*#productsContainer{
+    margin:1em;
+}*/
+#productsName{
+    color:#7c7f8b;
+    font-size:30px;
+}
+#floatRight{
+  float:right;
+  color:#40b1c1;
+  font-size:30px;
+}
+/*Single Product CSS */
+#singleProductInfo{
+    text-align:left;
+}
+#singleProductText{
+    color:#b2b2b4;
+    text-align:left;
+    
+}
+#singleProductPrice{
+    color:#42b1c1; 
+    font-size:36px;
+    margin-right:4em;
+}
+#singleProductPrice1{
+    color:#777b87; 
+    font-size:36px;
+}
+#singleProductContainer{
+    margin-top:5%;
+    margin-right:10%;
+    margin-left:5%;
+}
+#singleProductButton{
+    width:250px;
+    height:50px;
+    background-color:#47b6c7;
+    color:white;
+    border-radius:5%;
+    font-size:24px;
+}
+/*Misc Styles*/
+#miscContainer{
+    margin-left:5%;
+    margin-right:2%;
+}
+#miscInnerContainer{
+    display:inline-block;
+    margin:1em;
+}

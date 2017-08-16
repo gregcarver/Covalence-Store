@@ -4,15 +4,19 @@
         <img src="../images/covalence-store-apparel-hero.jpg">
     </div>
     
-    
-    <div ng-repeat="items in products" class="col-md-4" id="productsContainer">
+<div id="miscContainer">
+                <div ng-repeat="items in products" id="miscInnerContainer">
         
     
                 <img ng-src="../images/{{items.image}}">
                 <br>
-                {{items.name}}
+                <span id="productsName">{{items.name}}</span>
                 <span id="floatRight">${{items.price | MonetaryUnit}}  </span>
         </div>
+</div>
+
+    
+
 
     </div>
 </div>

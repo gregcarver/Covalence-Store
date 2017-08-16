@@ -1,7 +1,22 @@
-<div ng-controller="GetOneProduct">
-           <img ng-src="../images/{{singleProduct.image}}">
+<div ng-controller="GetOneProduct" id="singleProductContainer">
+    <div class="col-md-6">
+        <img ng-src="../images/{{singleProduct.image}}">
+    </div>
+    <div class="col-md-6" id="singleProductInfo">       
            <br>
-        $ {{singleProduct.price | MonetaryUnit}}
+        <p id="singleProductPrice">$ {{singleProduct.price | MonetaryUnit}}</p>
+        <p id="singleProductPrice1">{{singleProduct.name}}</p>
         <br>
-        {{singleProduct.name}}
+        <p id="singleProductText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et luctus lorem. Maecenas sit amet elit nec nunc pharetra viverra sed maximus leo. Phasellus vitae felis massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Suspendisse augue sem, pellentesque nec porttitor sed, facilisis et diam. Maecenas vel massa ut enim pellentesque luctus. </p>
+        <ul id="singleProductText">
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et luctus lorem. Maecenas sit amet elit nec nunc pharetra viverra sed maximus leo. Phasellus vitae felis massa. Vestibulum ante ipsum primis in</li>
+            <br>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et luctus lorem. Maecenas sit amet elit nec nunc pharetra viverra sed maximus leo. Phasellus vitae felis massa. Vestibulum ante ipsum primis in</li>
+            <br>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et luctus lorem. Maecenas sit amet elit nec nunc pharetra viverra sed maximus leo. Phasellus vitae felis massa. Vestibulum ante ipsum primis in</li>
+        </ul>
+    </div>
+    <button id="singleProductButton">
+        ADD TO CART
+    </button>
 </div>
