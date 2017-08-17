@@ -12,7 +12,7 @@ app.config(function($routeProvider){
     templateUrl: "../views/misc.html"
 })
     .when('/invoices',{
-    templateUrl: "../views/invoices.html"
+    templateUrl: "../views/invoice.html"
 })
     .when('/checkout',{
     templateUrl: "../views/checkout.html"
