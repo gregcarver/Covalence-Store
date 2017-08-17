@@ -1,9 +1,9 @@
+
 #home-header {
     position: absolute;    
     color:white;
-    transform: translate(30%,-600%);
+    transform: translate(40%,180%);
     width: 600px;
-    z-index: 0;    
     font-size:70px;
 }
 
@@ -15,8 +15,17 @@
     border: none;
     color: white;
     border-radius: 5px;
-    transform: translate(60%,-700%);
-    
+    transform: translate(-25%,600%);
+}
+
+#home-img-div {
+    position: relative;
+    background-image: url("../images/covalence-store-home.jpg");
+    background-size: cover;
+    height: 1000px; 
+    background-position-y: 50%;
+    margin-top: -100px;
+    z-index: -1;
 }
 
 #home-logo {
@@ -25,6 +34,7 @@
 
 .navbar {
     opacity: 0.9;
+    z-index: 1;
 }
 
 .navbar-brand {
@@ -38,9 +48,9 @@
     width: auto;
 }
 
-#home-bg-img {
+/* #home-bg-img {
     margin-top: -102px;
-}
+} */
 
 .nav >li >a {
 padding-top: 30px;
