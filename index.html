@@ -42,10 +42,13 @@
     <div id="mySidenav" class="sidenav">
         
            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><div id="side-nav-span"><span class="close-span">close</span></div></a>
-            <span class="indent-span">Your Shopping Cart</span>
-        <div id="side-nav-line"></div>
-        <span class="indent-span">Total Price</span>
-        <span id="side-nav-price" class="indent-span">$45</span>
+           <div ng-controller="GetOneProduct">
+                <span class="indent-span">Your Shopping Cart</span><span id="index-Cart"><img src="../images/{{singleProduct.image}}" alt="">{{singleProduct.name}}:{{singleProduct.price}}</span>
+                <div id="side-nav-line"></div>
+                <span class="indent-span">Total Price</span>
+                <span id="side-nav-price" class="indent-span">$45</span>
+           </div>
+
         
         <br>
         <p id="side-nav-para">Taxes and fees included at checkout</p>

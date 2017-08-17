@@ -8,7 +8,7 @@
                 <div ng-repeat="items in products" id="miscInnerContainer">
         
     
-                <img ng-src="../images/{{items.image}}">
+                <a ng-click=getId(items.id)><img ng-src="../images/{{items.image}}" ></a>
                 <br>
                 <span id="productsName">{{items.name}}</span>
                 <span id="floatRight">${{items.price | MonetaryUnit}}  </span>

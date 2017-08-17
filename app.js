@@ -22,7 +22,7 @@ app.config(function($routeProvider){
 })
 });
 // //Get all products
-app.controller("GetProducts",function($scope,$http){
+app.controller("GetProducts",function($scope,$http,$location){
     // console('Get product initialized')
     $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/all?category=apparel', fillHeader)
         .then(function(response){
@@ -33,8 +33,12 @@ app.controller("GetProducts",function($scope,$http){
                 console.log($scope.products)
            
         })
+                    $scope.getId=function(id){
+            console.log(id)
+            $location.path("/products/" + id)
+        };
     })
-app.controller("GetMisc",function($scope,$http){
+app.controller("GetMisc",function($scope,$http,$location){
     // console('Get product initialized')
     $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/all?category=misc',fillHeader)
         .then(function(response){
@@ -43,8 +47,11 @@ app.controller("GetMisc",function($scope,$http){
             $scope.products = response.data.data
             
                 console.log($scope.products)
-           
         })
+            $scope.getId=function(id){
+            console.log(id)
+            $location.path("/products/" + id)
+        };
     })
 // //Get one product
 app.controller("GetOneProduct",function($scope,$http,$routeParams){
@@ -109,8 +116,6 @@ app.filter('MonetaryUnit', function () {
         console.log(amount)
           var string= amount.toString()
           console.log(string)
-        return string.slice(0,2)
-        
+        return string.slice(0,2)   
     }
-    
 });
