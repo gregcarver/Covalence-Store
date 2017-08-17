@@ -1,22 +1,21 @@
-
 <div ng-controller="GetProducts">
     <div class="jumbotron jumbotron-contain">
         <img src="../images/covalence-store-apparel-hero.jpg">
     </div>
-    
-<div id="miscContainer">
-                <div ng-repeat="items in products" id="miscInnerContainer">
-        
-    
-                <a ng-click=getId(items.id)><img ng-src="../images/{{items.image}}" ></a>
-                <br>
-                <span id="productsName">{{items.name}}</span>
-                <span id="floatRight">${{items.price | MonetaryUnit}}  </span>
+    <div id="miscContainer">
+        <div ng-repeat="items in products" id="miscInnerContainer">
+            <a ng-click=getId(items.id)>
+                <img ng-src="../images/{{items.image}}" >
+            </a>
+            <br>
+            <span id="productsName">{{items.name}}</span>
+            <span id="floatRight">${{items.price | MonetaryUnit}}</span>
         </div>
-</div>
-
-    
-
-
     </div>
+    <footer class="footer" style="background-color:#f4f4f4">
+        <div class="container-footer" style="color: d0d2d3">
+            <img class="footer-img" src="../images/logo-footer.svg" style="max-width: 20%;max-height: 100%; padding: 20px 0px 20px 20px">
+            <span class="copyright-footer" style="color: #d0d2d3; float: right; line-height: 600%; margin-right: 30px; font-weight: bold">Copyright Covalence LLC</span>
+        </div>
+    </footer>
 </div>
