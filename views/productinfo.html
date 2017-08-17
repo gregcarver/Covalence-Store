@@ -1,6 +1,6 @@
 <div ng-controller="GetOneProduct" id="singleProductContainer">
     <div class="col-md-6">
-        <img ng-src="../images/{{singleProduct.image}}">
+        <img ng-src="../images/{{singleProduct.image}}" ng-click="initializeStorage()">
     </div>
     <div class="col-md-6" id="singleProductInfo">       
            <br>
@@ -9,14 +9,14 @@
         <br>
         <p id="singleProductText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et luctus lorem. Maecenas sit amet elit nec nunc pharetra viverra sed maximus leo. Phasellus vitae felis massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Suspendisse augue sem, pellentesque nec porttitor sed, facilisis et diam. Maecenas vel massa ut enim pellentesque luctus. </p>
         <ul id="singleProductText">
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et luctus lorem. Maecenas sit amet elit nec nunc pharetra viverra sed maximus leo. Phasellus vitae felis massa. Vestibulum ante ipsum primis in</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et luctus lorem. Maecenas sit amet elit nec nunc pharetra viverra sed maximus leo. Phasellus vitae felis massa. Vestibulum ante</li>
             <br>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et luctus lorem. Maecenas sit amet elit nec nunc pharetra viverra sed maximus leo. Phasellus vitae felis massa. Vestibulum ante ipsum primis in</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et luctus lorem. Maecenas sit amet elit nec nunc pharetra viverra sed maximus leo. Phasellus vitae felis massa. Vestibulum ante</li>
             <br>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et luctus lorem. Maecenas sit amet elit nec nunc pharetra viverra sed maximus leo. Phasellus vitae felis massa. Vestibulum ante ipsum primis in</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et luctus lorem. Maecenas sit amet elit nec nunc pharetra viverra sed maximus leo. Phasellus vitae felis massa. Vestibulum ante</li>
         </ul>
     </div>
-    <button id="singleProductButton">
+    <button id="singleProductButton" ng-click="addItem(singleProduct)">
         ADD TO CART
     </button>
 </div>

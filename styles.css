@@ -69,6 +69,12 @@ padding-bottom: 30px;
   color:#40b1c1;
   font-size:30px;
 }
+#floatRight2{
+  float:right;
+  color:#40b1c1;
+  font-size:30px;
+  margin:1.75em;
+}
 /*Single Product CSS */
 #singleProductInfo{
     text-align:left;
@@ -91,6 +97,9 @@ padding-bottom: 30px;
     margin-top:5%;
     margin-right:10%;
     margin-left:5%;
+}
+.singleProductContainer2{
+    margin:5%;
 }
 #singleProductButton{
     width:250px;
@@ -215,4 +224,8 @@ padding-bottom: 30px;
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+#removeButton{
+    width:150px;
+    height:50px;
 }

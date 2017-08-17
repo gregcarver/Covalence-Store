@@ -60,8 +60,38 @@ app.controller("GetOneProduct",function($scope,$http,$routeParams){
         .then(function(response){
             console.log('get request processed')
             $scope.singleProduct=response.data.data
-        })
+                var array= []
+            $scope.addItem=function(data){
+                
+
+               // array = JSON.parse(localStorage.getItem('session'));
+            //     array.push(data)
+            //     localStorage.setItem('session',JSON.stringify(array));
+            // var storage = JSON.parse(localStorage.getItem('session'));
+
+
+         array = JSON.parse(localStorage.getItem('session'));
+        array.push(data);
+        localStorage.setItem('session', JSON.stringify(array));
+        console.log(localStorage);
+        var storage = JSON.parse(localStorage.getItem('session'));
+        console.log(storage);
+        console.log(localStorage);
+        }
+
     })
+})
+app.controller("CartController",function($scope){
+    $scope.storage=JSON.parse(localStorage.getItem('session'));
+        console.log($scope.storage)
+    $scope.deleteItem=function(){
+        var id=$routeParams.id;
+        $http.delete('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/one/'+id,fillHeader)
+            .then(function(response){
+                console.log(response)
+            })
+    }
+})
     // app.controller("GetOneMisc",function($scope,$http,$routeParams){
     // console('Get product initialized')
     // var id=$routeParams.id;
@@ -91,26 +121,26 @@ app.controller("GetInvoices",function($scope,$http){
 //         })
 //     })
 // //Post Invoice
-app.controller("PostProduct",function($scope,$http){
-    console('post invoice initialized')
-    $scope.postInvoice = function() {
-        console.log('i clicked');
-        var data= {
-            date : $scope.date,
-            price : $scope.price,
-            id : $scope.id
-        };
-    $http.post('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/invoices',fillHeader)
-        .then(function(response){
-            //console.log(response)
-            console.log('post request processed')
-            $scope.invoices = response.data.data
+// app.controller("PostProduct",function($scope,$http){
+//     console('post invoice initialized')
+//     $scope.postInvoice = function() {
+//         console.log('i clicked');
+//         var data= {
+//             date : $scope.date,
+//             price : $scope.price,
+//             id : $scope.id
+//         };
+//     $http.post('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/invoices',fillHeader)
+//         .then(function(response){
+//             //console.log(response)
+//             console.log('post request processed')
+//             $scope.invoices = response.data.data
             
-                console.log($scope.invoices)
+//                 console.log($scope.invoices)
            
-        })
-    }
-})
+//         })
+//     }
+// })
 app.filter('MonetaryUnit', function () {
     return function (amount) {
         console.log(amount)
@@ -119,3 +149,8 @@ app.filter('MonetaryUnit', function () {
         return string.slice(0,2)   
     }
 });
+            // $scope.initializeStorage = function(){
+            //     var array = [];
+            //     localStorage.setItem('session' ,JSON.stringify(array))
+            //     console.log(localStorage)
+            // }
