@@ -171,7 +171,7 @@ padding-bottom: 30px;
     top: 75px;
     right: 0;
     background-color: #eff3f6;
-    /*overflow-x: hidden;*/
+    overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
 
