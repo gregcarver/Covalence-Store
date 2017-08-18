@@ -225,7 +225,6 @@ padding-bottom: 30px;
     float: right;
     line-height: 75px;
     font-size: 18px;
-    margin-right: 100px;
     color: #edeeed;
  }
 
@@ -271,4 +270,15 @@ padding-bottom: 30px;
     width:150px;
     height:50px;
     color:red;
+}
+#numberStyle{
+    border-radius:50%;
+    background-color:#47b6c7;
+    height:35px;
+    width:35px;
+    color:white;
+    text-align:center;
+    line-height: 35px;
+    float:right;
+    margin:1.5em;
 }

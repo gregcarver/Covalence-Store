@@ -49,8 +49,7 @@ app.controller("GetMisc",function($scope,$http,$location){
             //console.log(response)
             console.log('get request processed')
             $scope.products = response.data.data
-            
-                console.log($scope.products)
+        
         })
             $scope.getId=function(id){
             console.log(id)
@@ -60,25 +59,23 @@ app.controller("GetMisc",function($scope,$http,$location){
 // //Get one product
 app.controller("GetOneProduct",function($scope,$http,$routeParams,$rootScope){
     var id=$routeParams.id;
+
     $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/one/'+id,fillHeader)
         .then(function(response){
             console.log('get request processed')
-            $scope.singleProduct=response.data.data
-                
-            $scope.addItem=function(data){
-              //  $rootScope.array = JSON.parse(localStorage.getItem('session'));
-                $rootScope.array.push(data);
-                localStorage.setItem('session', JSON.stringify($rootScope.array));
-                console.log(localStorage);
-             //   var storage = JSON.parse(localStorage.getItem('session'));
-              //  console.log(storage);
-                console.log($rootScope.array);
-
-
-        }
-
-
-    })
+            $scope.singleProduct=response.data.data;
+            console.log($scope.singleProduct);
+    });
+    
+    $scope.addItem=function(data){
+        //  $rootScope.array = JSON.parse(localStorage.getItem('session'));
+        $rootScope.array.push(data);
+        localStorage.setItem('session', JSON.stringify($rootScope.array));
+        console.log(localStorage);
+        //   var storage = JSON.parse(localStorage.getItem('session'));
+        //  console.log(storage);
+        console.log($rootScope.array);
+    }
 })
 app.controller("CartController",function($scope,$http,$routeParams,$rootScope){
 
@@ -87,10 +84,14 @@ app.controller("CartController",function($scope,$http,$routeParams,$rootScope){
     $scope.storage=JSON.parse(localStorage.getItem('session'));
         console.log($scope.storage)
 
+$scope.calculateTotal=function(){
+    $rootScope.array.forEach(function(element) {
+        //dear future greg, try pushing all the prices into an array then join them, love past/lazy greg
+        console.log(element.price)
+        $rootScope.total += element.price   
+    });
+}
 
-$rootScope.array.forEach(function(element) {
-    $rootScope.total += element.price   
-});
 
     $scope.removeItem = function(storageThings) {
        $rootScope.array.splice($scope.storage, 1);
@@ -153,9 +154,9 @@ app.controller("GetInvoices",function($scope,$http){
 // })
 app.filter('MonetaryUnit', function () {
     return function (amount) {
-        console.log(amount)
-          var string= amount.toString()
-          console.log(string)
+        console.log('running ');
+
+        var string= amount.toString();
         return string.slice(0,2)   
     }
 });

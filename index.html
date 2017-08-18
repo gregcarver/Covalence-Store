@@ -35,7 +35,7 @@
                 <!-- <li> -->
                     <!-- </li> -->
                 </ul>
-                <span class="navbar-right" id="cart" onclick="openNav()"> Cart </span>
+               <div id="numberStyle">{{array.length}}</div> <span class="navbar-right" id="cart" onclick="openNav()"> Cart </span>
         </div>
     </nav>
 
@@ -45,16 +45,16 @@
            <div ng-controller="CartController">
                <span class="indent-span">Your Shopping Cart</span>
                <div id="side-nav-line"></div>
-               <div ng-repeat="array in array track by $index">
+               <div ng-repeat="arr in array track by $index">
                 <div class="col-lg-2">
-                    <img class="singleProductContainer2" ng-src="../images/{{array.image}}" style="height:100px;width:100px;">
+                    <img class="singleProductContainer2" ng-src="../images/{{arr.image}}" style="height:100px;width:100px;">
                </div>
                 <div class="col-lg-8">
-                    <div id="singleProductPrice1"> {{array.name}}</div>
+                    <div id="singleProductPrice1"> {{arr.name}}</div>
                     <button id="removeButton" ng-click="removeItem($storageThings)">Remove</button>
                </div>
                 <div class="col-lg-2">
-                    <span id="floatRight2" class="singleProductContainer2"> ${{array.price | MonetaryUnit}} </span>
+                    <span id="floatRight2" class="singleProductContainer2"> ${{arr.price | MonetaryUnit}} </span>
                </div>
                 
                 
@@ -62,7 +62,7 @@
 
                 </div>
                                 <span class="indent-span">Total Price</span>
-                <span id="side-nav-price" class="indent-span">${{total | MonetaryUnit}}</span>
+                <span id="side-nav-price" class="indent-span" ng-click="calculateTotal(total)">${{total | MonetaryUnit}}</span>
                 
                 
            </div>
