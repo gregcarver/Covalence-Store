@@ -44,6 +44,7 @@
            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><div id="side-nav-span"><span class="close-span">close</span></div></a>
            <div ng-controller="CartController">
                <span class="indent-span">Your Shopping Cart</span>
+               <div id="side-nav-line"></div>
                <div ng-repeat="array in array track by $index">
                 <div class="col-lg-2">
                     <img class="singleProductContainer2" ng-src="../images/{{array.image}}" style="height:100px;width:100px;">
@@ -57,7 +58,7 @@
                </div>
                 
                 
-                                <div id="side-nav-line"></div>
+                                
 
                 </div>
                                 <span class="indent-span">Total Price</span>
