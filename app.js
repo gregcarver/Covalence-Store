@@ -62,36 +62,33 @@ app.controller("GetOneProduct",function($scope,$http,$routeParams){
             $scope.singleProduct=response.data.data
                 var array= []
             $scope.addItem=function(data){
-                
-
-               // array = JSON.parse(localStorage.getItem('session'));
-            //     array.push(data)
-            //     localStorage.setItem('session',JSON.stringify(array));
-            // var storage = JSON.parse(localStorage.getItem('session'));
-
-
-         array = JSON.parse(localStorage.getItem('session'));
-        array.push(data);
-        localStorage.setItem('session', JSON.stringify(array));
-        console.log(localStorage);
-        var storage = JSON.parse(localStorage.getItem('session'));
-        console.log(storage);
-        console.log(localStorage);
+                array = JSON.parse(localStorage.getItem('session'));
+                array.push(data);
+                localStorage.setItem('session', JSON.stringify(array));
+                console.log(localStorage);
+                var storage = JSON.parse(localStorage.getItem('session'));
+                console.log(storage);
+                console.log(localStorage);
         }
+
 
     })
 })
-app.controller("CartController",function($scope){
+app.controller("CartController",function($scope,$http,$routeParams){
+     
     $scope.storage=JSON.parse(localStorage.getItem('session'));
         console.log($scope.storage)
-    $scope.deleteItem=function(){
-        var id=$routeParams.id;
-        $http.delete('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/one/'+id,fillHeader)
-            .then(function(response){
-                console.log(response)
-            })
-    }
+        
+    $scope.removeItem = function(storageThings) {
+       $scope.storage.splice($scope.storage, 1);
+    // var index = $scope.storage.indexOf(storageThings);
+    console.log($scope.storage)
+   // localStorage.removeItem(storageThings)
+
+    localStorage.setItem('session', JSON.stringify($scope.storage));
+}
 })
+
     // app.controller("GetOneMisc",function($scope,$http,$routeParams){
     // console('Get product initialized')
     // var id=$routeParams.id;
@@ -154,3 +151,7 @@ app.filter('MonetaryUnit', function () {
             //     localStorage.setItem('session' ,JSON.stringify(array))
             //     console.log(localStorage)
             // }
+                           // array = JSON.parse(localStorage.getItem('session'));
+            //     array.push(data)
+            //     localStorage.setItem('session',JSON.stringify(array));
+            // var storage = JSON.parse(localStorage.getItem('session'));
