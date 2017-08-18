@@ -44,25 +44,25 @@
            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><div id="side-nav-span"><span class="close-span">close</span></div></a>
            <div ng-controller="CartController">
                <span class="indent-span">Your Shopping Cart</span>
-               <div ng-repeat="storageItem in storage">
+               <div ng-repeat="array in array track by $index">
                 <div class="col-lg-2">
-                    <img class="singleProductContainer2" ng-src="../images/{{storageItem.image}}" style="height:100px;width:100px;">
+                    <img class="singleProductContainer2" ng-src="../images/{{array.image}}" style="height:100px;width:100px;">
                </div>
                 <div class="col-lg-8">
-                    <div id="singleProductPrice1"> {{storageItem.name}}</div>
+                    <div id="singleProductPrice1"> {{array.name}}</div>
                     <button id="removeButton" ng-click="removeItem($storageThings)">Remove</button>
                </div>
                 <div class="col-lg-2">
-                    <span id="floatRight2" class="singleProductContainer2"> ${{storageItem.price | MonetaryUnit}} </span>
+                    <span id="floatRight2" class="singleProductContainer2"> ${{array.price | MonetaryUnit}} </span>
                </div>
                 
                 
-                
-                
+                                <div id="side-nav-line"></div>
+
                 </div>
-                <div id="side-nav-line"></div>
-                <span class="indent-span">Total Price</span>
-                <span id="side-nav-price" class="indent-span">$45</span>
+                                <span class="indent-span">Total Price</span>
+                <span id="side-nav-price" class="indent-span">${{total | MonetaryUnit}}</span>
+                
                 
            </div>
 

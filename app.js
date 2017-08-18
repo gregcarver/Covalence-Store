@@ -21,6 +21,10 @@ app.config(function($routeProvider){
     templateUrl: "../views/productinfo.html"
 })
 });
+app.run(function($rootScope){
+    $rootScope.array=[]
+    $rootScope.total=0
+})
 // //Get all products
 app.controller("GetProducts",function($scope,$http,$location){
     // console('Get product initialized')
@@ -54,33 +58,42 @@ app.controller("GetMisc",function($scope,$http,$location){
         };
     })
 // //Get one product
-app.controller("GetOneProduct",function($scope,$http,$routeParams){
+app.controller("GetOneProduct",function($scope,$http,$routeParams,$rootScope){
     var id=$routeParams.id;
     $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/one/'+id,fillHeader)
         .then(function(response){
             console.log('get request processed')
             $scope.singleProduct=response.data.data
-                var array= []
+                
             $scope.addItem=function(data){
-                array = JSON.parse(localStorage.getItem('session'));
-                array.push(data);
-                localStorage.setItem('session', JSON.stringify(array));
+              //  $rootScope.array = JSON.parse(localStorage.getItem('session'));
+                $rootScope.array.push(data);
+                localStorage.setItem('session', JSON.stringify($rootScope.array));
                 console.log(localStorage);
-                var storage = JSON.parse(localStorage.getItem('session'));
-                console.log(storage);
-                console.log(localStorage);
+             //   var storage = JSON.parse(localStorage.getItem('session'));
+              //  console.log(storage);
+                console.log($rootScope.array);
+
+
         }
 
 
     })
 })
-app.controller("CartController",function($scope,$http,$routeParams){
+app.controller("CartController",function($scope,$http,$routeParams,$rootScope){
+
+
      
     $scope.storage=JSON.parse(localStorage.getItem('session'));
         console.log($scope.storage)
-        
+
+
+$rootScope.array.forEach(function(element) {
+    $rootScope.total += element.price   
+});
+
     $scope.removeItem = function(storageThings) {
-       $scope.storage.splice($scope.storage, 1);
+       $rootScope.array.splice($scope.storage, 1);
     // var index = $scope.storage.indexOf(storageThings);
     console.log($scope.storage)
    // localStorage.removeItem(storageThings)
