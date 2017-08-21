@@ -1,7 +1,4 @@
 <div ng-controller="GetMisc">
-    <!--<img src="../images/covalence-store-misc-hero.jpg">
-    <div id="miscContainer">-->
-
     <div id="misc-jumbo" class="jumbotron jumbotron-contain ">
     </div>
     <div id="miscContainer">
@@ -9,13 +6,13 @@
             <a ng-click=getId(items.id)><img class="img-responsive"ng-src="../images/{{items.image}}"></a>
             <br>
             <span id="productsName">{{items.name}}</span>
-            <span id="floatRight">${{items.price | MonetaryUnit}}
+            <span id="floatRight">${{items.price | MonetaryUnit}}</span>
         </div>
         </div>
     </div>
     <footer class="footer" style="background-color:#f4f4f4">
-        <div class="container-footer" style="color: d0d2d3">
-            <img class="footer-img" src="../images/logo-footer.svg" style="max-width: 20%;max-height: 100%; padding: 20px 0px 20px 20px">
+        <div class="container" style="color: d0d2d3">
+            <img class="footer-img" src="../images/logo-footer.svg" style="max-width: 35%; max-height: 100%; padding: 15px 0px 15px 0px">
             <span class="copyright-footer" style="color: #d0d2d3; float: right; line-height: 600%; margin-right: 30px; font-weight: bold">Copyright Covalence LLC</span>
         </div>
     </footer>
