@@ -138,11 +138,19 @@ padding-top: 30px;
 padding-bottom: 30px;
 }
 /*Product CSS*/
-
-#productContainer{
-    margin-left: 8%;
-    margin-right: 8%;
+@media only screen and (max-width : 500px){
+    #productContainer{
+    margin-left: 10%;
     margin-top: 26%;
+}
+}
+
+@media only screen and (min-width : 480px){
+    #productContainer{
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 26%;
+}
 }
 
 #productsName{
@@ -196,9 +204,15 @@ padding-bottom: 30px;
 }
 /*Misc Styles*/
 #miscContainer{
-    margin-left: 8%;
-    margin-right: 8%;
+    margin-left: 10%;
     margin-top: 28%;
+}
+@media only screen and (min-width : 480px){
+    #miscContainer{
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 28%;
+}
 }
 #miscInnerContainer{
     display:inline-block;

@@ -66,7 +66,11 @@ app.controller("GetOneProduct",function($scope,$http,$routeParams,$rootScope){
             $scope.singleProduct=response.data.data;
             console.log($scope.singleProduct);
     });
-    
+                $scope.initializeStorage = function(){
+                var array = [];
+                localStorage.setItem('session' ,JSON.stringify(array))
+                console.log(localStorage)
+            }
     $scope.addItem=function(data){
         //  $rootScope.array = JSON.parse(localStorage.getItem('session'));
         $rootScope.array.push(data);
@@ -76,6 +80,13 @@ app.controller("GetOneProduct",function($scope,$http,$routeParams,$rootScope){
         //  console.log(storage);
         console.log($rootScope.array);
     }
+    $scope.calculateTotal=function(){
+    $rootScope.array.forEach(function(element) {
+        //dear future greg, try pushing all the prices into an array then join them, love past/lazy greg
+        console.log(element.price)
+        $rootScope.total += element.price   
+    });
+}
 })
 app.controller("CartController",function($scope,$http,$routeParams,$rootScope){
 
@@ -84,22 +95,17 @@ app.controller("CartController",function($scope,$http,$routeParams,$rootScope){
     $scope.storage=JSON.parse(localStorage.getItem('session'));
         console.log($scope.storage)
 
-$scope.calculateTotal=function(){
-    $rootScope.array.forEach(function(element) {
-        //dear future greg, try pushing all the prices into an array then join them, love past/lazy greg
-        console.log(element.price)
-        $rootScope.total += element.price   
-    });
-}
+
 
 
     $scope.removeItem = function(storageThings) {
+        console.log(storageThings)
        $rootScope.array.splice($scope.storage, 1);
     // var index = $scope.storage.indexOf(storageThings);
     console.log($scope.storage)
    // localStorage.removeItem(storageThings)
 
-    localStorage.setItem('session', JSON.stringify($scope.storage));
+    // localStorage.setItem('session', JSON.stringify($scope.storage));
 }
 })
 
@@ -154,18 +160,13 @@ app.controller("GetInvoices",function($scope,$http){
 // })
 app.filter('MonetaryUnit', function () {
     return function (amount) {
-        console.log('running ');
-
         var string= amount.toString();
-        return string.slice(0,2)   
+            return string.slice(0,-2)   
     }
 });
-            // $scope.initializeStorage = function(){
-            //     var array = [];
-            //     localStorage.setItem('session' ,JSON.stringify(array))
-            //     console.log(localStorage)
-            // }
-                           // array = JSON.parse(localStorage.getItem('session'));
+
+
+            //                array = JSON.parse(localStorage.getItem('session'));
             //     array.push(data)
             //     localStorage.setItem('session',JSON.stringify(array));
             // var storage = JSON.parse(localStorage.getItem('session'));
