@@ -1,5 +1,6 @@
 @media only screen and (min-width : 480px) {
     #home-img-div {  
+        margin-top: -100px;        
         background-image: url("../images/covalence-store-home.jpg");
         background-size: cover;
         background-repeat: no-repeat;
@@ -29,9 +30,30 @@
         width: 360px;
         font-size:3em;
     } 
+
+     #product-jumbo {
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: 0;
+        background-position: 44% 100%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;         
+    }
+
+    #misc-jumbo {
+        /*margin-top: -100px;*/
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: 0;
+        background-position: 44% 100%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;         
+    }
 }
 
-@media only screen and (min-width : 1200px) {
+@media only screen and (min-width : 1100px) {
     #home-img-div {  
         margin-top: -100px;
         background-image: url("../images/covalence-store-home.jpg");
@@ -53,14 +75,14 @@
         border: none;
         color: white;
         border-radius: 5px;
-        transform: translate(120%, 371%);
+        transform: translate(75%, 371%);
         text-transform: uppercase;
     }
 
     #home-header {
         position: relative;    
         color:white;
-        transform: translate(80%,260%);
+        transform: translate(50%,260%);
         width: 450px;
         font-size:3.7em;
         word-spacing: 2px;
@@ -68,8 +90,29 @@
         font-weight: bold;
         text-decoration: ca
     } 
+
+    #product-jumbo {
+        margin-top: -32%;                
+        background-image: url("../images/covalence-store-apparel-hero.jpg");
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        left: 0;
+        background-repeat: no-repeat;
+    }
+
+   #misc-jumbo {
+        margin-top: -34%;                 
+        background-image: url("../images/covalence-store-misc-hero.jpg");
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        left: 0;
+        background-repeat: no-repeat;
+    }
 }
 
+/*navbar*/
 #home-logo {
     border-right: 3px solid rgb(67, 176, 193);
 }
@@ -90,18 +133,18 @@
     width: auto;
 }
 
-/* #home-bg-img {
-    margin-top: -102px;
-} */
-
 .nav >li >a {
 padding-top: 30px;
 padding-bottom: 30px;
 }
 /*Product CSS*/
-/*#productsContainer{
-    margin:1em;
-}*/
+
+#productContainer{
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 26%;
+}
+
 #productsName{
     color:#7c7f8b;
     font-size:30px;
@@ -153,8 +196,9 @@ padding-bottom: 30px;
 }
 /*Misc Styles*/
 #miscContainer{
-    margin-left:5%;
-    margin-right:2%;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 28%;
 }
 #miscInnerContainer{
     display:inline-block;
@@ -266,6 +310,9 @@ padding-bottom: 30px;
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+
+/**/
 #removeButton{
     width:150px;
     height:50px;

@@ -15,7 +15,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-route.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-inverse">
+    <!--<nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="/#/" class="navbar-brand">
@@ -32,12 +32,41 @@
                 <li>
                     <a href="#/invoices" class="link">ORDERS</a>
                 </li>
-                <!-- <li> -->
+                 <li> -->
                     <!-- </li> -->
-                </ul>
+                <!--</ul>
                <div id="numberStyle">{{array.length}}</div> <span class="navbar-right" id="cart" onclick="openNav()"> Cart </span>
         </div>
-    </nav>
+    </nav>-->
+
+    <nav class='navbar navbar-inverse'>
+    <div class='container-fluid'>
+      <div class='navbar-header'>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+        </button>
+        <a class='navbar-brand' href='/#/'>
+            <img src="./images/Newlogo.png" id="home-logo">
+        </a>
+      </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class='nav navbar-nav'>
+<!--           <li class='active'><a href='#home'></a></li> -->
+            <li class="dropdown"> 
+                <a href="#/products" id="link">APPAREL</a>
+            </li>
+            <li>
+                <a href="#/misc" class="link">MISC</a>
+            </li>
+            <li>
+                <a href="#/invoices" class="link">ORDERS</a>
+            </li>
+        </ul>
+        <div id="numberStyle">{{array.length}}</div> <span class="navbar-right" id="cart" onclick="openNav()"> Cart </span>
+    </div>
+  </nav>
 
     <div id="mySidenav" class="sidenav">
         

@@ -1,11 +1,10 @@
 <div ng-controller="GetProducts">
-    <div class="jumbotron jumbotron-contain">
-        <img src="../images/covalence-store-apparel-hero.jpg">
+    <div id="product-jumbo" class="jumbotron jumbotron-contain">
     </div>
-    <div id="miscContainer">
+    <div id="productContainer">
         <div ng-repeat="items in products" id="miscInnerContainer">
             <a ng-click=getId(items.id)>
-                <img ng-src="../images/{{items.image}}">
+                <img class="img-responsive new" ng-src="../images/{{items.image}}">
             </a>
             <br>
             <span id="productsName">{{items.name}}</span>
