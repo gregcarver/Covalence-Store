@@ -186,6 +186,10 @@ padding-bottom: 30px;
     color:#777b87; 
     font-size:36px;
 }
+#singleProductPrice2{
+    color:#777b87; 
+    font-size:24px;
+}
 #singleProductContainer{
     margin-top:5%;
     margin-right:10%;
@@ -333,6 +337,11 @@ padding-bottom: 30px;
     height:50px;
     color:red;
 }
+#removeButton2{
+    width:100px;
+    height:35px;
+    color:red;
+}
 #numberStyle{
     border-radius:50%;
     background-color:#47b6c7;
@@ -347,4 +356,8 @@ padding-bottom: 30px;
 #none{
     text-decoration: none;
     color:White;
+}
+.navbar-nav>li>a:hover ,
+.navbar-nav>li>a:active {
+    border-bottom: 5px solid white!important;
 }

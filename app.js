@@ -102,11 +102,7 @@ app.controller("CartController",function($scope,$http,$routeParams,$rootScope){
     $scope.removeItem = function(storageThings) {
         console.log(storageThings)
        $rootScope.array.splice($scope.storage, 1);
-    // var index = $scope.storage.indexOf(storageThings);
     console.log($scope.storage)
-   // localStorage.removeItem(storageThings)
-
-    // localStorage.setItem('session', JSON.stringify($scope.storage));
 }
 })
 
