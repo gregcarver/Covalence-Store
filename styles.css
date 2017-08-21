@@ -296,6 +296,7 @@ padding-bottom: 30px;
     font-weight: bold; 
     color:white;
     letter-spacing: 3px;
+    text-decoration: none;
 }
 
 #side-nav-line {
@@ -342,4 +343,8 @@ padding-bottom: 30px;
     line-height: 35px;
     float:right;
     margin:1.5em;
+}
+#none{
+    text-decoration: none;
+    color:White;
 }

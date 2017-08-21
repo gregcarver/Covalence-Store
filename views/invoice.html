@@ -8,11 +8,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat:"item in something">
+            <div ng-controller="GetInvoices">   
+            <tr ng-repeat:"item in invoices">
                 <th scope="row">1</th>
                 <td>{{items.name}}</td>
                 <td>{{items.price}}</td>
             </tr>
+            </div>
+
         </tbody>
     </table>
     <footer class="footer" style="background-color:#f4f4f4">

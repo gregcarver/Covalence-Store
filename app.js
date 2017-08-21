@@ -62,15 +62,15 @@ app.controller("GetOneProduct",function($scope,$http,$routeParams,$rootScope){
 
     $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/one/'+id,fillHeader)
         .then(function(response){
-            console.log('get request processed')
-            $scope.singleProduct=response.data.data;
-            console.log($scope.singleProduct);
-    });
-                $scope.initializeStorage = function(){
-                var array = [];
-                localStorage.setItem('session' ,JSON.stringify(array))
-                console.log(localStorage)
-            }
+            $scope.singleProduct = response.data.data;
+        });
+
+    $scope.initializeStorage = function(){
+        var array = [];
+        localStorage.setItem('session', JSON.stringify(array))
+        console.log(localStorage)
+    };
+
     $scope.addItem=function(data){
         //  $rootScope.array = JSON.parse(localStorage.getItem('session'));
         $rootScope.array.push(data);
@@ -79,14 +79,15 @@ app.controller("GetOneProduct",function($scope,$http,$routeParams,$rootScope){
         //   var storage = JSON.parse(localStorage.getItem('session'));
         //  console.log(storage);
         console.log($rootScope.array);
-    }
+    };
+
     $scope.calculateTotal=function(){
-    $rootScope.array.forEach(function(element) {
-        //dear future greg, try pushing all the prices into an array then join them, love past/lazy greg
-        console.log(element.price)
-        $rootScope.total += element.price   
-    });
-}
+        $rootScope.array.forEach(function(element) {
+            //dear future greg, try pushing all the prices into an array then join them, love past/lazy greg
+            console.log(element.price)
+            $rootScope.total += element.price;  
+        });
+    };
 })
 app.controller("CartController",function($scope,$http,$routeParams,$rootScope){
 
@@ -109,24 +110,13 @@ app.controller("CartController",function($scope,$http,$routeParams,$rootScope){
 }
 })
 
-    // app.controller("GetOneMisc",function($scope,$http,$routeParams){
-    // console('Get product initialized')
-    // var id=$routeParams.id;
-    // $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/one/'+id,fillHeader)
-    //     .then(function(response){
-    //         console.log('get request processed')
-    //         $scope.products=response.data
-    //     })
-    // })
 // //Get all invoices
 app.controller("GetInvoices",function($scope,$http){
-    console('Get all invoices initialized')
-    $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/invoices/all',fillHeader)
+    $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/invoices/all', fillHeader)
         .then(function(response){
-            console.log('get request processed')
             $scope.invoices=response.data.data
-        })
-    })
+        });
+});
 // //Get one invoice
 // app.controller("GetOneProduct",function($scope,$http,$routeParams){
 //     console('Get product initialized')
@@ -159,10 +149,10 @@ app.controller("GetInvoices",function($scope,$http){
 //     }
 // })
 app.filter('MonetaryUnit', function () {
-    return function (amount) {
-        var string= amount.toString();
-            return string.slice(0,-2)   
-    }
+    return function(amount) {
+        var string = amount.toString();
+        return string.slice(0,-2)   
+    };
 });
 
 
