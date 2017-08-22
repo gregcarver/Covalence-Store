@@ -11,22 +11,26 @@
                         <br/>
                         <form>
                             <div class="container">
+                                   
                                 <div class="row">
-                                    <!-- <div class="col-md-6 form-group"> -->
-                                       <h3> Your Email </h3>
+                                    
+                                        <div id="numberStyle">1</div>
+                                    <h3> Your Email </h3>
                                 <input type="text" class="form-control" ng-model="email.text" placeholder="you@email.com">
                                     </div>
                                 </br>
                                
                                 <div class="row">
-                                       
-                                    <h3> Your Billing Address </h3>
-                                    <div class="col-md-6 form-group">
-                                         <span> Name </span>  <input type="text" class="form-control" placeholder="Enter First Name">
+                                        
+                                    <div id="numberStyle">2</div>
+                                     <h3> Your Billing Address </h3>
+                                      <div class="col-md-6 form-group">
+                                        <input type="text" class="form-control" placeholder="First Name">
                                     </div>
                                     <div class="col-md-6 form-group">
                                         <label for="lastname"></label>
-                                        <input type="text" class="form-control" placeholder="Enter Last Name">
+                                        <input type="text" class="form-control" placeholder="Last Name">
+                                       
                                     </div>
                                 </div>
                                          
@@ -375,7 +379,12 @@
     
     
                                 <div class="row">
-                                    
+                                    <div id="numberStyle">2</div>
+                                    <h3> Payment Method </h3>
+                                    <img src="/images/visa.png" alt="" width="45" height="25">
+                                    <img src="/images/mastercard.png" alt="" width="45" height="25">
+                                    <img src="/images/american-express.png" alt="" width="45" height="25">
+                                    <img src="/images/discover.png" alt="" width="45" height="25">
                                     <div class="col-md-8">
                                         <label for="cardnumber">Credit Card Number</label>
                                         <input type="number" class="form-control" ng-model="cardnumber" placeholder="Enter Card Number">
