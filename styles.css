@@ -410,3 +410,12 @@ body {
     margin-right: 30px; 
     font-weight: bold;
 }
+
+/* Checkout Page */
+
+#cancel-btn{
+    background-color: #47b6c7;
+    width: 18em;
+    height: 4em;
+    border-radius: 10px;
+}

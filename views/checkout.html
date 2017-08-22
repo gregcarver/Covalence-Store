@@ -24,11 +24,14 @@
                                         
                                     <div id="numberStyle">2</div>
                                      <h3> Your Billing Address </h3>
+                                     <br>
+                                     <br>
                                       <div class="col-md-6 form-group">
                                         <input type="text" class="form-control" placeholder="First Name">
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <label for="lastname"></label>
+                                   
+                                       
                                         <input type="text" class="form-control" placeholder="Last Name">
                                        
                                     </div>
@@ -420,6 +423,7 @@
                                    </div>
                                    <div class="col-md-6">
                                        <label for="expirationYear">Expiration Year</label>
+
                                        <select class = "form-control" id= "year" name="year">
                                            <option value="0">Enter Expiration Year</option>
                                            <option value="2">2017</option>
@@ -440,7 +444,7 @@
                                 <br/>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button type="submit" ng-click="processPayment()" class="btn btn-warning btn-lg" ng-click="postInvoice">Pay</button>
+                                       <a href="#/invoices"> <button type="submit" ng-click="processPayment()" class="btn btn-warning btn-lg" ng-click="postInvoice">Pay</button> </a>
                                     </div>
                                     <div class="col-md-6">
                                         <h4>Total: {{ finalcost | currency:"$"}}</h4>
@@ -475,7 +479,7 @@
                     </div>
                     <div class="col-md-6">
                         <h3>Your Shopping Cart</h3>
-                        <button type="submit"  class="btn btn-warning btn-lg"> -- Cancel And Continue Shopping</button>
+                        <a href="#/products"><button id="cancel-btn"> -- Cancel And Continue Shopping</button> </a>
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-3">
