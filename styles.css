@@ -374,7 +374,7 @@ padding-bottom: 30px;
     border-bottom: 5px solid white!important;
 }
 
-*{
+/* *{
     padding: 0;
     margin: 0;
 }
@@ -384,16 +384,17 @@ html {
   min-height: 100%;
 }
 
-body {
+body { */
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
+  /* margin-bottom: 60px;
+} */
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  /* position: relative; */
+  /* bottom: 0;
+  width: 100%; */
   background-color:#f4f4f4;
+  /* z-index: -1; */
 }
 
 .footer-img {
