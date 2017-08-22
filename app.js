@@ -6,19 +6,19 @@ app.config(function($routeProvider){
         templateUrl: "../views/home.html"
     })
     .when('/products',{
-    templateUrl: "../views/products.html"
+        templateUrl: "../views/products.html"
 })
     .when('/misc',{
-    templateUrl: "../views/misc.html"
+        templateUrl: "../views/misc.html"
 })
     .when('/invoices',{
-    templateUrl: "../views/invoice.html"
+        templateUrl: "../views/invoice.html"
 })
     .when('/checkout',{
-    templateUrl: "../views/checkout.html"
+        templateUrl: "../views/checkout.html"
 })
     .when('/products/:id',{
-    templateUrl: "../views/productinfo.html"
+        templateUrl: "../views/productinfo.html"
 })
 });
 app.run(function($rootScope){
@@ -72,38 +72,27 @@ app.controller("GetOneProduct",function($scope,$http,$routeParams,$rootScope){
     };
 
     $scope.addItem=function(data){
-        //  $rootScope.array = JSON.parse(localStorage.getItem('session'));
         $rootScope.array.push(data);
         localStorage.setItem('session', JSON.stringify($rootScope.array));
-        console.log(localStorage);
-        //   var storage = JSON.parse(localStorage.getItem('session'));
-        //  console.log(storage);
-        console.log($rootScope.array);
+                $rootScope.total += data.price;
+                console.log($scope.total);
     };
-
-    $scope.calculateTotal=function(){
-        $rootScope.array.forEach(function(element) {
-            //dear future greg, try pushing all the prices into an array then join them, love past/lazy greg
-            console.log(element.price)
-            $rootScope.total += element.price;  
-        });
-    };
-})
+});
 app.controller("CartController",function($scope,$http,$routeParams,$rootScope){
 
-
-     
     $scope.storage=JSON.parse(localStorage.getItem('session'));
         console.log($scope.storage)
 
-
-
-
     $scope.removeItem = function(storageThings) {
-        console.log(storageThings)
-       $rootScope.array.splice($scope.storage, 1);
-    console.log($scope.storage)
-}
+        console.log($rootScope.array)
+        $rootScope.array.splice($scope.storage, 1);
+        // $rootScope.array.forEach(function(i){
+            // console.log($scope.storage[0].price);
+            // $rootScope.total -= $scope.storage[0].price;
+        // })
+        // console.log($rootScope.array)
+
+    }
 })
 
 // //Get all invoices
