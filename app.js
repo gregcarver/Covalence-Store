@@ -113,25 +113,26 @@ app.controller("GetInvoices",function($scope,$http){
 //         })
 //     })
 // //Post Invoice
-app.controller("PostProduct",function($scope,$http){
-    console('post invoice initialized')
-    $scope.postInvoice = function() {
-        console.log('i clicked');
-        var data= {
-            date : $scope.date,
-            price : $scope.price,
-            id : $scope.id
-        };
-    $http.post('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/invoices',fillHeader)
-        .then(function(response){
-            //console.log(response)
-            console.log('post request processed')
-            $scope.invoices = response.data.data
+app.controller("PostProduct",function($scope,$http,$location,$rootScope){
+        var data = {
+            price : $rootScope.total
+        }
+        $scope.Poster = function(){
+            $http({ 
+                method: 'POST', 
+                url: 'http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/invoices',fillHeader,
+                headers: {
+                    'Filter' : 'f0414a37-8143-11e7-8e40-12dbaf53d968' 
+                }, 
+                data: data 
+            })
+            .then(function(response){
             
-                console.log($scope.invoices)
-           
-        })
-    }
+            })
+            $location.path("/invoices")
+        }
+
+   // }
 })
 app.filter('MonetaryUnit', function () {
     return function(amount) {

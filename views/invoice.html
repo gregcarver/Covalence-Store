@@ -2,18 +2,27 @@
     <table class="table table-striped table-inverse">
         <thead>
             <tr>
+                
             <th>#</th>
-            <th>Name</th>
+            <th>Total</th>
             <th>Price</th>
             </tr>
         </thead>
         <tbody>
-            <div ng-controller="GetInvoices">   
-            <tr ng-repeat:"item in invoices">
-                <th scope="row">1</th>
-                <td>{{items.name}}</td>
-                <td>{{items.price}}</td>
-            </tr>
+            <div ng-controller="GetInvoices">
+                <div ng-repeat="item in invoices">
+                    <div class="col-lg-4">
+                        <div scope="row">Id:{{item.id}}</div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div>Total:${{item.price | MonetaryUnit}}</div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div>{{item.date}}</div>
+                    </div>
+                 
+                </div>   
+
             </div>
 
         </tbody>
@@ -24,4 +33,3 @@
             <span class="copyright-footer">Copyright Covalence LLC</span>
         </div>
     </footer>
-</div>

@@ -384,7 +384,7 @@
     
     
                                 <div class="row">
-                                    <div id="numberStyle">2</div>
+                                    <div id="numberStyle">3</div>
                                     <h3> Payment Method </h3>
                                     <img id="visa-img" src="/images/visa.png" alt="" width="45" height="25">
                                     <img id="master-img" src="/images/mastercard.png" alt="" width="45" height="25">
@@ -443,11 +443,11 @@
                                 </div>
                                 <br/>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                       <a href="#/invoices"> <button type="submit" ng-click="processPayment()" class="btn btn-warning btn-lg" ng-click="postInvoice">Pay</button> </a>
+                                    <div class="col-md-6" ng-controller="PostProduct">
+                                        <button type="submit" class="btn btn-warning btn-lg" ng-click="Poster()">Pay</button>
                                     </div>
                                     <div class="col-md-6">
-                                        <h4>Total: {{ finalcost | currency:"$"}}</h4>
+                                        <h4></h4>
                                     </div>
                                 </div>
                             </div>
