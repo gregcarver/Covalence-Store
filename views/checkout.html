@@ -50,7 +50,7 @@
                             <div class="row">
                                     
                                 <div class="col-md-6 form-group">
-                                     <input type="text" STYLE="background-color:#eaeaf2" class="form-control" placeholder="Address 1">
+                                     <input type="text" item-width="125%" STYLE="background-color:#eaeaf2" class="form-control" placeholder="Address 1">
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <input type="text" STYLE="background-color:#eaeaf2" class="form-control"  placeholder="Address 2">
@@ -448,12 +448,12 @@
                             </div>
                             <br/>
                             <div class="row">
+                                    <h5> Almost done! Click the submit button to process your payment </h5>
                                 <div class="col-md-6" ng-controller="PostProduct">
-                                    <button type="submit" STYLE="background-color:#47b6c7 " class="btn btn-lg" ng-click="Poster()">Submit Your Order</button>
+                                    
+                                    <button type="submit" style="background-color:#47b6c7 " style="color:white" class="btn-lg" ng-click="Poster()">Submit Your Order</button>
                                 </div>
-                                <div class="col-md-6">
-                                    <h4></h4>
-                                </div>
+                               
                             </div>
                         </div>
                     </form>
@@ -462,9 +462,7 @@
                             <div class="col-md-3">
                                 <img ng-src="{{ i.imageurl }}" class="img-thumbnail" alt="">
                             </div>
-                            <div class="col-md-4">
-                                <h4></h4>
-                            </div>
+                           
                             <div class="col-md-3">
                                 <h4 ng-model="price"></h4>
                             </div>
@@ -483,8 +481,8 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <h3>Your Shopping Cart</h3>
-                    <a href="#/products"><button id="cancel-btn"> -- Cancel And Continue Shopping</button> </a>
+                    <h2>Your Shopping Cart</h2>
+                    <a href="#/products"><button style="color:#eabcc0"  id="cancel-btn"> -- Cancel And Continue Shopping</button> </a>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-3">
@@ -516,7 +514,7 @@
                             
 
             </div>
-                            <span class="indent-span">Order Total</span>
+                            <span class="indent-span">Order Summary</span>
             <span id="side-nav-price" class="indent-span">${{total | MonetaryUnit}}</span>
                 </div>
             </div>

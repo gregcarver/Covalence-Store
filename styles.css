@@ -419,12 +419,24 @@ body { */
 /* Checkout Page */
 
 #cancel-btn{
-    background-color: #47b6c7;
+    background-color: white;
     width: 18em;
     height: 4em;
     border-radius: 10px;
+    border: none;
 }
 #totalStyle{
     position:relative;
     left:6em;
+}
+
+.btn-lg{
+    color: white;   
+    border: none;
+}
+.form-control{
+    background-color: #eaeaf2;
+    border-radius: 0px;
+    border-color: #eaeaf2;
+    border:#eaeaf2;
 }
