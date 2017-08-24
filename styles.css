@@ -162,6 +162,10 @@ padding-bottom: 30px;
   color:#40b1c1;
   font-size:30px;
 }
+#floatPrice{
+  color:#40b1c1;
+  font-size:30px;
+}
 #floatRight2{
   float:right;
   color:#40b1c1;
@@ -419,4 +423,8 @@ body { */
     width: 18em;
     height: 4em;
     border-radius: 10px;
+}
+#totalStyle{
+    position:relative;
+    left:6em;
 }
