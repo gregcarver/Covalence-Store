@@ -114,7 +114,9 @@
 
 /*navbar*/
 #home-logo {
-    border-right: 3px solid rgb(67, 176, 193);
+    border-left: 3px solid rgb(67, 176, 193);
+    height:60%;
+    line-height: 5;
 }
 
 .navbar {
