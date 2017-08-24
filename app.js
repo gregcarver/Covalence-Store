@@ -54,8 +54,31 @@ app.controller("GetMisc",function($scope,$http,$location){
             $location.path("/products/" + id)
         };
     })
+
+app.factory("cartFactory", function($rootScope){
+    factory={};
+
+    factory.add = function(data){
+        $rootScope.array.push(data);
+        $rootScope.total += data.price;
+    }
+
+    factory.remove = function(data){  
+        console.log(data);
+        var index = $rootScope.array.indexOf(data);
+        
+        if(index === -1){
+            return;
+        }
+
+        $rootScope.array.splice(index, 1);
+        $rootScope.total -= data.price;
+    }
+
+    return factory;
+});
 // //Get one product
-app.controller("GetOneProduct",function($scope,$http,$routeParams,$rootScope){
+app.controller("GetOneProduct",function($scope,$http,$routeParams,$rootScope, cartFactory){
     var id=$routeParams.id;
 
     $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/one/'+id,fillHeader)
@@ -70,42 +93,17 @@ app.controller("GetOneProduct",function($scope,$http,$routeParams,$rootScope){
     };
 
     $scope.addItem=function(data){
-        $rootScope.array.push(data);
-        console.log(data)
-        localStorage.setItem('session', JSON.stringify($rootScope.array));
-                $rootScope.total += data.price;
-                console.log($scope.total);
+        cartFactory.add(data);
+        console.log("click");
     };
 });
-app.controller("CartController",function($scope,$http,$routeParams,$rootScope){
+app.controller("CartController",function($scope,$http,$routeParams,$rootScope, cartFactory){
 
-    $scope.storage=JSON.parse(localStorage.getItem('session'));
-        console.log($scope.storage)
-
-    $scope.removeItem = function(index,item) {
-        
-       
-        console.log(index)
-         $rootScope.array.splice(index, 1);
-        console.log(index)
-         localStorage.setItem('session', JSON.stringify($rootScope.array));
-        // console.log(localStorage)
-        //  console.log(item)
-        // $rootScope.total -= item.price
-        
-
-        // for(var i = 0 ; i < $rootScope.array.length;i++){
-        //     $rootScope.total -= $rootScope.array[i].price
-        // }
-        //                    console.log($rootScope.array)
-        // console.log(localStorage)
-        $rootScope.array.forEach(function(element) {
-           
-           $rootScope.total -= element.price
-
-        });
-        
+    $scope.removeItem = function(data) {
+        console.log("CartController", data);
+        cartFactory.remove(data);   
     }
+    
 })
 
 // //Get all invoices
