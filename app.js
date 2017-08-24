@@ -27,10 +27,8 @@ app.run(function($rootScope){
 })
 // //Get all products
 app.controller("GetProducts",function($scope,$http,$location){
-    // console('Get product initialized')
     $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/all?category=apparel', fillHeader)
         .then(function(response){
-            //console.log(response)
             console.log('get request processed')
             $scope.products = response.data.data
             
@@ -86,12 +84,6 @@ app.controller("CartController",function($scope,$http,$routeParams,$rootScope){
     $scope.removeItem = function(storageThings) {
         console.log($rootScope.array)
         $rootScope.array.splice($scope.storage, 1);
-        // $rootScope.array.forEach(function(i){
-            // console.log($scope.storage[0].price);
-            // $rootScope.total -= $scope.storage[0].price;
-        // })
-        // console.log($rootScope.array)
-
     }
 })
 
@@ -102,37 +94,27 @@ app.controller("GetInvoices",function($scope,$http){
             $scope.invoices=response.data.data
         });
 });
-// //Get one invoice
-// app.controller("GetOneProduct",function($scope,$http,$routeParams){
-//     console('Get product initialized')
-//     var id=$routeParams.id;
-//     $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/invoices/one/'+id,fillHeader)
-//         .then(function(response){
-//             console.log('get request processed')
-//             $scope.invoices=response.data
-//         })
-//     })
-// //Post Invoice
-app.controller("PostProduct",function($scope,$http,$location,$rootScope){
-        var data = {
-            price : $rootScope.total
-        }
-        $scope.Poster = function(){
-            $http({ 
-                method: 'POST', 
-                url: 'http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/invoices',fillHeader,
-                headers: {
-                    'Filter' : 'f0414a37-8143-11e7-8e40-12dbaf53d968' 
-                }, 
-                data: data 
-            })
-            .then(function(response){
-            
-            })
-            $location.path("/invoices")
-        }
 
-   // }
+ //Post Invoice
+app.controller("PostProduct",function($scope,$http,$location,$rootScope){
+    var data = {
+        price : $rootScope.total
+    }
+    $scope.Poster = function(){
+        $http({ 
+            method: 'POST', 
+            url: 'http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/invoices',fillHeader,
+            headers: {
+                'Filter' : 'f0414a37-8143-11e7-8e40-12dbaf53d968' 
+            }, 
+            data: data 
+        })
+        .then(function(response){
+        
+        })
+        $location.path("/invoices")
+    }
+
 })
 app.filter('MonetaryUnit', function () {
     return function(amount) {
@@ -141,8 +123,52 @@ app.filter('MonetaryUnit', function () {
     };
 });
 
+app.controller("CheckOut", function($scope, myFactory){
+    
+    myFactory.getCardBrand($scope.val);  
+});
 
-            //                array = JSON.parse(localStorage.getItem('session'));
-            //     array.push(data)
-            //     localStorage.setItem('session',JSON.stringify(array));
-            // var storage = JSON.parse(localStorage.getItem('session'));
+app.factory('myFactory', function () {
+    var service = {};
+
+    service.getCardBrand = function(num){
+        var brand,
+            patterns = [
+                { name: 'amex', pattern: /^3[47]/ },
+                { name: 'dankort', pattern: /^5019/ },
+                { name: 'dinersclub', pattern: /^(36|38|30[0-5])/ },
+                { name: 'discover', pattern: /^(6011|65|64[4-9]|622)/ },
+                { name: 'jcb', pattern: /^(35|1800|2131)/ },
+                { name: 'laser', pattern: /^(6706|6771|6709)/ },
+                { name: 'maestro', pattern: /^(5018|5020|5038|6304|6703|6759|676[1-3])/ },
+                { name: 'mastercard', pattern: /^(5[1-5]|677189)|^(222[1-9]|2[3-6]\d{2}|27[0-1]\d|2720)/ },
+                { name: 'unionpay', pattern: /^62/ },
+                { name: 'visaelectron', pattern: /^4(026|17500|405|508|844|91[37])/ },
+                { name: 'elo', pattern: /^4011|438935|45(1416|76|7393)|50(4175|6699|67|90[4-7])|63(6297|6368)/ },
+                { name: 'visa', pattern: /^4/ }
+            ];
+
+        patterns.some(function(p) {
+            if (p.pattern.test(num)) {
+                brand = p.name;
+                return true;
+            }
+        });
+
+        if(brand === "discover"){
+            console.log("This is a discover");
+        } else if(brand === "visa"){
+            console.log("this is a visa");
+            var visa = document.getElementById("visa-img");
+            $(visa).css("border", "4px yellow solid");
+        } else if(brand === "amex"){
+            var amex = document.getElementById("AmExp-img");
+            $(amex).css("border", "4px yellow solid")
+            console.log("this is amex");
+        } else if(brand === "mastercard"){
+            console.log("this is a mastercard");
+        }
+    }
+
+    return service;
+  });
