@@ -145,8 +145,14 @@ app.filter('MonetaryUnit', function () {
 });
 
 app.controller("CheckOut", function($scope, myFactory){
-    var inputVal = document.getElementById("#inputVal");
-    myFactory.getCardBrand();  
+    var cvc = document.getElementById("cvc");
+    
+    cvc.addEventListener("click", function(){
+        var inputVal = document.getElementById("inputVal").value;
+        console.log(inputVal);
+        myFactory.getCardBrand(inputVal);  
+    });
+    
 });
 
 app.factory('myFactory', function () {
@@ -176,6 +182,9 @@ app.factory('myFactory', function () {
             }
         });
 
+        
+
+
         if(brand === "discover"){
             console.log("This is a discover");
         } else if(brand === "visa"){
@@ -189,8 +198,9 @@ app.factory('myFactory', function () {
         } else if(brand === "mastercard"){
             console.log("this is a mastercard");
         }
+
+        
     }
 
     return service;
   });
-               
