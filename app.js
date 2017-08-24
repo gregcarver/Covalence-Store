@@ -71,6 +71,7 @@ app.controller("GetOneProduct",function($scope,$http,$routeParams,$rootScope){
 
     $scope.addItem=function(data){
         $rootScope.array.push(data);
+        console.log(data)
         localStorage.setItem('session', JSON.stringify($rootScope.array));
                 $rootScope.total += data.price;
                 console.log($scope.total);
@@ -81,9 +82,29 @@ app.controller("CartController",function($scope,$http,$routeParams,$rootScope){
     $scope.storage=JSON.parse(localStorage.getItem('session'));
         console.log($scope.storage)
 
-    $scope.removeItem = function(storageThings) {
-        console.log($rootScope.array)
-        $rootScope.array.splice($scope.storage, 1);
+    $scope.removeItem = function(index,item) {
+        
+       
+        console.log(index)
+         $rootScope.array.splice(index, 1);
+        console.log(index)
+         localStorage.setItem('session', JSON.stringify($rootScope.array));
+        // console.log(localStorage)
+        //  console.log(item)
+        // $rootScope.total -= item.price
+        
+
+        // for(var i = 0 ; i < $rootScope.array.length;i++){
+        //     $rootScope.total -= $rootScope.array[i].price
+        // }
+        //                    console.log($rootScope.array)
+        // console.log(localStorage)
+        $rootScope.array.forEach(function(element) {
+           
+           $rootScope.total -= element.price
+
+        });
+        
     }
 })
 

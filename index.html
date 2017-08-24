@@ -80,7 +80,7 @@
                </div>
                 <div class="col-lg-8">
                     <div id="singleProductPrice1"> {{arr.name}}</div>
-                    <button id="removeButton" ng-click="removeItem($storageThings)">Remove</button>
+                    <button id="removeButton" ng-click="removeItem($index,item)">Remove</button>
                </div>
                 <div class="col-lg-2">
                     <span id="floatRight2" class="singleProductContainer2"> ${{arr.price | MonetaryUnit}} </span>
