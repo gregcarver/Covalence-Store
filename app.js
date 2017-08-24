@@ -124,8 +124,8 @@ app.filter('MonetaryUnit', function () {
 });
 
 app.controller("CheckOut", function($scope, myFactory){
-    
-    myFactory.getCardBrand($scope.val);  
+    var inputVal = document.getElementById("#inputVal");
+    myFactory.getCardBrand();  
 });
 
 app.factory('myFactory', function () {
@@ -140,11 +140,11 @@ app.factory('myFactory', function () {
                 { name: 'discover', pattern: /^(6011|65|64[4-9]|622)/ },
                 { name: 'jcb', pattern: /^(35|1800|2131)/ },
                 { name: 'laser', pattern: /^(6706|6771|6709)/ },
-                { name: 'maestro', pattern: /^(5018|5020|5038|6304|6703|6759|676[1-3])/ },
+                { name: 'maestro', pattern: /^(5018|5020|5038|6304|6703|6759|676[1-3])/}, 
+                { name: 'elo', pattern: /^4011|438935|45(1416|76|7393)|50(4175|6699|67|90[4-7])|63(6297|6368)/ },
                 { name: 'mastercard', pattern: /^(5[1-5]|677189)|^(222[1-9]|2[3-6]\d{2}|27[0-1]\d|2720)/ },
                 { name: 'unionpay', pattern: /^62/ },
                 { name: 'visaelectron', pattern: /^4(026|17500|405|508|844|91[37])/ },
-                { name: 'elo', pattern: /^4011|438935|45(1416|76|7393)|50(4175|6699|67|90[4-7])|63(6297|6368)/ },
                 { name: 'visa', pattern: /^4/ }
             ];
 
@@ -172,3 +172,4 @@ app.factory('myFactory', function () {
 
     return service;
   });
+               
