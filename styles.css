@@ -209,6 +209,7 @@ padding-bottom: 30px;
     color:white;
     border-radius:5%;
     font-size:24px;
+    border: none;
 }
 /*Misc Styles*/
 #miscContainer{
@@ -340,12 +341,12 @@ padding-bottom: 30px;
 #removeButton{
     width:150px;
     height:50px;
-    color:red;
+    color:#eabcc0;
 }
 #removeButton2{
     width:100px;
     height:35px;
-    color:red;
+    color:#eabcc0;
 }
 #numberStyle{
     border-radius:50%;
