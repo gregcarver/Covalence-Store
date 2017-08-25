@@ -424,11 +424,11 @@
                             <div class="row">
                             <div class="col-md-4">
                                 </div> 
-                                    <input id="inputVal" type="number" STYLE="background-color:#eaeaf2" class="form-control" ng-model="val" placeholder="Enter Card Number">
+                                    <input id="inputVal" type="number" STYLE="background-color:#eaeaf2" class="form-control" ng-model="val" placeholder="Card #">
                                 
                                 <div class="col-md-4">
                                    
-                                    <input id="cvc" type="number"  style="background-color:#eaeaf2 ; margin-top:1.25em" class="form-control" ng-model="cvc" placeholder="Enter CVC">
+                                    <input id="cvc" type="number"  style="background-color:#eaeaf2 ; margin-top:1.25em" class="form-control" ng-model="cvc" placeholder="CVC">
                                 </div>
                                 
                             <br/>
@@ -436,7 +436,7 @@
                                <div class="col-md-4">
                                   
                                    <select class="form-control" STYLE="background-color:#eaeaf2" id="month"  name="month">
-                                                     <option value="12">Enter Expiration Month</option>
+                                                     <option value="12">Month</option>
                                                     <option value="0">January</option>
                                                     <option value="1">February</option>
                                                     <option value="2">March</option>
@@ -457,7 +457,7 @@
                                    
 
                                    <select class = "form-control" STYLE="background-color:#eaeaf2" id= "year" name="year">
-                                       <option value="0">Enter Expiration Year</option>
+                                       <option value="0">Year</option>
                                        <option value="2">2017</option>
                                        <option value="3">2018</option>
                                        <option value="4">2019</option>
@@ -474,15 +474,16 @@
                                </div>
                             </div>
                             <br/>
-                            <span class="round">
-                                    <input type="checkbox" id="checkbox" />
-                                    <label for="checkbox"></label>
-                                  </span>
-                            <img id="paypal-img" src="/images/paypal.png" alt="" width="47" height="27">
+                            
                                 
                             </div>
                             </div>
                         </div>
+                        <span class="round">
+                                <input type="checkbox" id="checkbox" />
+                                <label for="checkbox"></label>
+                              </span>
+                        <img id="paypal-img" src="/images/paypal.png" alt="" width="47" height="27">
                             <div class="row">
                             
                                 
@@ -541,7 +542,7 @@
                    </div>
                     <div class="col-lg-8">
                         <div id="singleProductPrice1"> {{arr.name}}</div>
-                        <button id="removeButton2" ng-click="removeItem($storageThings)">Remove</button>
+                        <button id="removeButton2" ng-click="removeItem(arr)">Remove</button>
                    </div>
                     <div class="col-lg-2">
                         <span id="floatRight2" class="singleProductContainer2"> ${{arr.price | MonetaryUnit}} </span>
@@ -553,7 +554,7 @@
                     </div>
                                     <span class="indent-span">Order Summary</span>
                                     <br>
-                                    <input placeholder="Discount Code" type="text"><input type="submit" >
+                                    <input placeholder="Discount Code" type="text"><button class="apply">Apply</button>
                     <span id="side-nav-price" class="indent-span">${{total | MonetaryUnit}}</span>
                         </div>
                 </div>
