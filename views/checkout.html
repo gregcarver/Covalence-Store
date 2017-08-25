@@ -1,23 +1,28 @@
 <div class="jumbotron purchasetron">
-    <div class="container">
+    <div class="container" id="checkoutcont" style="padding-left: 0px;" >
         <div class="container">
             <div class="row">
                 <div class="col-md-6" style ='background-color: white'>
                     <br/>
                     <br/>
                     <br/>
-                    <br/>
-                    <br/>
-                    <br/>
+                    
+                    
                     <form>
                         <div class="container">
                                
                             <div class="row">
-                                
+                                   
                                     <div id="numberStyle">1</div>
                                 <h3> Your Email </h3>
+                               <div class="cold-md-2">
+                               </div>
+                                <div class="col-md-10">
+                                        
+                                
                             <input type="text" class="form-control" STYLE="background-color:#eaeaf2" ng-model="email.text" placeholder="you@email.com">
                                 </div>
+                            </div>
                             </br>
                            
                             <div class="row">
@@ -26,10 +31,13 @@
                                  <h3> Your Billing Address </h3>
                                  <br>
                                  <br>
-                                  <div class="col-md-6 form-group">
+                                 <div class="col-md-2">
+                                        <p><font color="grey">Name</font></p>
+                                 </div>
+                                  <div class="col-md-5 form-group">
                                     <input type="text" STYLE="background-color:#eaeaf2" class="form-control" placeholder="First Name">
                                 </div>
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-5 form-group">
                                
                                    
                                     <input type="text" class="form-control" STYLE="background-color:#eaeaf2" placeholder="Last Name">
@@ -38,31 +46,37 @@
                             </div>
                                      
                                      <div class="row">
-                                    
-                                <div class="col-md-6 form-group">
+                                            <div class="col-md-2">
+                                                  
+                                             </div>
+                                <div class="col-md-5 form-group">
                                      <input type="text" STYLE="background-color:#eaeaf2" class="form-control" placeholder="Company(Optional)">
                                 </div>
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-5 form-group">
                                     <input type="text" STYLE="background-color:#eaeaf2" class="form-control" mask="(999)999-999" clean="true" placeholder="Phone">
                                 </div>
                             </div>
 
                             <div class="row">
-                                    
+                                    <div class="col-md-2">
+                                            <p><font color="grey">Address</font></p>
+                                    </div>
                                 <div class="col-md-6 form-group">
                                      <input type="text" item-width="125%" STYLE="background-color:#eaeaf2" class="form-control" placeholder="Address 1">
                                 </div>
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-4 form-group">
                                     <input type="text" STYLE="background-color:#eaeaf2" class="form-control"  placeholder="Address 2">
                                 </div>
                             </div>
 
                             <div class="row">
-                                    
-                                <div class="col-md-6 form-group">
+                                    <div class="col-md-2">
+                                            
+                                       </div>
+                                <div class="col-md-5 form-group">
                                      <input type="text" STYLE="background-color:#eaeaf2" class="form-control" placeholder="City">
                                 </div>
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-5 form-group">
                                     <select class="form-control" id="state" STYLE="background-color:#eaeaf2" name="state">
                                             <option value="0">State</option>
                                             <option value="AL">Alabama</option>
@@ -121,8 +135,10 @@
                             </div>
 
                             <div class="row">
-                                    
-                                <div class="col-md-6 form-group">
+                                    <div class="col-md-2">
+                                            
+                                       </div>
+                                <div class="col-md-4 form-group">
                                      <input type="text" STYLE="background-color:#eaeaf2" class="form-control" ng-model="zipcode" placeholder="Zip Code">
                                 </div>
                                 <div class="col-md-6 form-group">
@@ -386,28 +402,37 @@
                             <div class="row" ng-controller= "CheckOut">
                                 <div id="numberStyle">3</div>
                                 <h3> Payment Method </h3>
-                                <span class="round">
-                                    <input type="checkbox" id="checkbox" />
-                                    <label for="checkbox"></label>
-                                  </span>
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-8 checkcontainer" >
+                                    
+                                        
                                 
+
+                            <div class="checkoutmargin">
+                                    <span class="round">
+                                            <input type="checkbox" id="checkbox" />
+                                            <label for="checkbox"></label>
+                                          </span>
+                                          <span><font color="grey">Credit Card</font></span>
                                 <img id="visa-img" src="/images/visa.png" alt="" width="45" height="25">
                                 <img id="master-img" src="/images/mastercard.png" alt="" width="45" height="25">
                                 <img id="AmExp-img" src="/images/american-express.png" alt="" width="45" height="25">
                                 <img id="disc-img" src="/images/discover.png" alt="" width="45" height="25">
-                                <div class="col-md-8">
-                                    <label for="cardnumber">Credit Card Number</label>
+                                <!-- <div class="col-md-8">
+                                </div> -->
+                            </div>
                                     <input id="inputVal" type="number" STYLE="background-color:#eaeaf2" class="form-control" ng-model="val" placeholder="Enter Card Number">
-                                </div>
+                                
                                 <div class="col-md-4">
-                                    <label for="cvc">CVC</label>
+                                   
                                     <input id="cvc" type="number"  STYLE="background-color:#eaeaf2" class="form-control" ng-model="cvc" placeholder="Enter CVC">
                                 </div>
-                            </div>
+                                
                             <br/>
                             <div class="row">
                                <div class="col-md-6">
-                                   <label for="expirationMonth">Expiration Month</label>
+                                  
                                    <select class="form-control" STYLE="background-color:#eaeaf2" id="month"  name="month">
                                                      <option value="12">Enter Expiration Month</option>
                                                     <option value="0">January</option>
@@ -427,7 +452,7 @@
                                   
                                </div>
                                <div class="col-md-6">
-                                   <label for="expirationYear">Expiration Year</label>
+                                   
 
                                    <select class = "form-control" STYLE="background-color:#eaeaf2" id= "year" name="year">
                                        <option value="0">Enter Expiration Year</option>
@@ -447,7 +472,18 @@
                                </div>
                             </div>
                             <br/>
+                            <span class="round">
+                                    <input type="checkbox" id="checkbox" />
+                                    <label for="checkbox"></label>
+                                  </span>
+                            <img id="paypal-img" src="/images/paypal.png" alt="" width="47" height="27">
+                                
+                            </div>
+                            </div>
+                        </div>
                             <div class="row">
+                            
+                                
                                     <h5> Almost done! Click the submit button to process your payment </h5>
                                 <div class="col-md-6" ng-controller="PostProduct">
                                     
@@ -479,45 +515,57 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <h2>Your Shopping Cart</h2>
-                    <a href="#/products"><button style="color:#eabcc0"  id="cancel-btn"> -- Cancel And Continue Shopping</button> </a>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-3">
+                    <div class="col-md-6 rightcheckoutstyle">
+                            <h2>Your Shopping Cart</h2>
+                            <a href="#/products"><button style="color:#eabcc0"  id="cancel-btn"> -- Cancel And Continue Shopping</button> </a>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h4>Item:</h4>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h4>Price</h4>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h4>Qty</h4>
+                                    </div>
+                                </div><br/>
                             </div>
-                            <div class="col-md-4">
-                                <h4>Item:</h4>
-                            </div>
-                            <div class="col-md-3">
-                                <h4>Price</h4>
-                            </div>
-                            <div class="col-md-2">
-                                <h4>Qty</h4>
-                            </div>
-                        </div><br/>
+                                           <div ng-repeat="arr in array track by $index">
+                    <div class="col-lg-2">
+                        <img class="singleProductContainer2" ng-src="../images/{{arr.image}}" style="height:75px;width:75px;">
+                   </div>
+                    <div class="col-lg-8">
+                        <div id="singleProductPrice1"> {{arr.name}}</div>
+                        <button id="removeButton2" ng-click="removeItem($storageThings)">Remove</button>
+                   </div>
+                    <div class="col-lg-2">
+                        <span id="floatRight2" class="singleProductContainer2"> ${{arr.price | MonetaryUnit}} </span>
+                   </div>
+                    
+                    
+                                    
+        
                     </div>
-                                   <div ng-repeat="arr in array track by $index">
-            <div class="col-lg-2">
-                <img class="singleProductContainer2" ng-src="../images/{{arr.image}}" style="height:75px;width:75px;">
-           </div>
-            <div class="col-lg-8">
-                <div id="singleProductPrice1"> {{arr.name}}</div>
-                <button id="removeButton2" ng-click="removeItem($storageThings)">Remove</button>
-           </div>
-            <div class="col-lg-2">
-                <span id="floatRight2" class="singleProductContainer2"> ${{arr.price | MonetaryUnit}} </span>
-           </div>
-            
-            
-                            
-
-            </div>
-                            <span class="indent-span">Order Summary</span>
-            <span id="side-nav-price" class="indent-span">${{total | MonetaryUnit}}</span>
+                                    <span class="indent-span">Order Summary</span>
+                                    <br>
+                                    <input placeholder="Discount Code" type="text"><input type="submit" >
+                    <span id="side-nav-price" class="indent-span">${{total | MonetaryUnit}}</span>
+                        </div>
                 </div>
+            </div>
+        </div>
+
             </div>
         </div>
     </div>
 </div>
+
+<footer class="footer">
+        <div class="container">
+            <img class="footer-img" src="../images/logo-footer.svg">
+            <span class="copyright-footer">Copyright Covalence LLC</span>
+        </div>
+    </footer>

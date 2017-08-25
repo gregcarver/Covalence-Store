@@ -443,3 +443,15 @@ body { */
     border-color: #eaeaf2;
     border:#eaeaf2;
 }
+.checkcontainer{
+    background-color: #f6f5fa;
+    
+}
+.checkoutmargin{
+margin: 1em;
+background-color: #eaeaf2;
+float: left;
+}
+.rightcheckoutstyle{
+    background-color:#f4f4f4;
+}
