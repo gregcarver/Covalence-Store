@@ -1,3 +1,4 @@
+
 var fillHeader = {headers:{'Filter' : 'f0414a37-8143-11e7-8e40-12dbaf53d968'} }
 var app = angular.module('myApp',["ngRoute"]);
 app.config(function($routeProvider){
@@ -22,9 +23,64 @@ app.config(function($routeProvider){
 })
 });
 app.run(function($rootScope){
-    $rootScope.array=[]
+    var items = localStorage.getItem('session');
+
+    if (items === null) {
+        items = [];
+        localStorage.setItem('session', JSON.stringify(items));
+    } else {
+        items = JSON.parse(items);
+    }
+
+    $rootScope.array = items;
     $rootScope.total=0
 })
+
+app.factory("cartFactory", function($rootScope, sessionFactory){
+    var factory={};
+
+    factory.add = function(data){
+        $rootScope.array.push(data);
+        $rootScope.total += data.price;
+        sessionFactory.addSession(data);
+    };
+
+    factory.remove = function(data){  
+        var index = $rootScope.array.indexOf(data);
+        
+        if(index === -1){
+            return;
+        }
+
+        $rootScope.array.splice(index, 1);
+        $rootScope.total -= data.price;
+        sessionFactory.removeSession(data);
+    };
+
+    return factory;
+});
+
+app.factory("sessionFactory", function($rootScope){
+    var factory = {};
+    var storage = JSON.parse(localStorage.getItem('session'));
+
+    factory.addSession = function(data){
+         
+        storage.push(data);
+        localStorage.setItem('session', JSON.stringify(storage));
+    }
+    
+    factory.removeSession = function(data){  
+        var index = storage.indexOf(data);
+        storage.splice(index, 1);
+        localStorage.setItem('session', JSON.stringify(storage));
+        console.log(storage);
+
+    }
+
+    return factory;
+}); 
+
 // //Get all products
 app.controller("GetProducts",function($scope,$http,$location){
     $http.get('http://iambham-store-dev.us-east-1.elasticbeanstalk.com/api/v1/products/all?category=apparel', fillHeader)
@@ -55,28 +111,7 @@ app.controller("GetMisc",function($scope,$http,$location){
         };
     })
 
-app.factory("cartFactory", function($rootScope){
-    factory={};
 
-    factory.add = function(data){
-        $rootScope.array.push(data);
-        $rootScope.total += data.price;
-    }
-
-    factory.remove = function(data){  
-        console.log(data);
-        var index = $rootScope.array.indexOf(data);
-        
-        if(index === -1){
-            return;
-        }
-
-        $rootScope.array.splice(index, 1);
-        $rootScope.total -= data.price;
-    }
-
-    return factory;
-});
 // //Get one product
 app.controller("GetOneProduct",function($scope,$http,$routeParams,$rootScope, cartFactory){
     var id=$routeParams.id;
@@ -87,20 +122,18 @@ app.controller("GetOneProduct",function($scope,$http,$routeParams,$rootScope, ca
         });
 
     $scope.initializeStorage = function(){
-        var array = [];
-        localStorage.setItem('session', JSON.stringify(array))
-        console.log(localStorage)
+        // var array = [];
+        // localStorage.setItem('session', JSON.stringify(array))
+
     };
 
     $scope.addItem=function(data){
         cartFactory.add(data);
-        console.log("click");
     };
 });
 app.controller("CartController",function($scope,$http,$routeParams,$rootScope, cartFactory){
 
     $scope.removeItem = function(data) {
-        console.log("CartController", data);
         cartFactory.remove(data);   
     }
     
@@ -180,10 +213,9 @@ app.factory('myFactory', function () {
             }
         });
 
-        
-
-
         if(brand === "discover"){
+            var disc = document.getElementById("disc-img");
+            $(disc).css("border", "4px yellow solid");
             console.log("This is a discover");
         } else if(brand === "visa"){
             console.log("this is a visa");
