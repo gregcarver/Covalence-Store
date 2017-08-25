@@ -2,44 +2,59 @@
     <table class="table table-striped table-inverse">
         <thead>
             <tr>
-            <div class="col-lg-4">
-            <th id="productsName">#Id</th>
-            </div>
-            <div class="col-lg-4">
-            <th style="text-align:center" id="productsName">Total</th>
-            </div>
-            <div class="col-lg-4">
-            <th style="text-align:center" id="productsName">Date</th>
-            </div>
+                <div class="col-lg-4">
+                    <th id="productsName">#Id</th>
+                </div>
+                <div class="col-lg-4">
+                    <th style="text-align:center" id="productsName">Total</th>
+                </div>
+                <div class="col-lg-4">
+                    <th style="text-align:center" id="productsName">Date</th>
+                </div>
             </tr>
         </thead>
-
-        </table>
-
-                             <tbody>
-            <div ng-controller="GetInvoices">
-                <div ng-repeat="item in invoices">
-                    <div class="col-lg-4" style="border:2px solid black">
-                        <div scope="row" id="productsName">{{item.id}}</div>
-                    </div>
-                    <div class="col-lg-4" style="border:2px solid black">
-                        <div id="floatPrice" >${{item.price | MonetaryUnit}}</div>
-                    </div>
-                    <div class="col-lg-4" style="border:2px solid black">
-                        <div id="productsName">{{item.date | date : "fullDate"}}</div>
-                    </div>
-                 
-                </div>   
-
-            </div>
-
-        </tbody>
-
-           
-
-    
-    
+    </table>
+    <tbody>
+        <div ng-controller="GetInvoices">
+            <div ng-repeat="item in invoices">
+                <div class="col-lg-4" style="border:2px solid black">
+                    <div scope="row" id="productsName">{{item.id}}</div>
+                </div>
+                <div class="col-lg-4" style="border:2px solid black">
+                    <div id="floatPrice" >${{item.price | MonetaryUnit}}</div>
+                </div>
+                <div class="col-lg-4" style="border:2px solid black">
+                    <div id="productsName">{{item.date | date : "shortDate"}}</div>
+                </div>
+            </div>   
+        </div>
+    </tbody>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <footer class="footer">
     <div class="container">
         <img class="footer-img" src="../images/logo-footer.svg">
